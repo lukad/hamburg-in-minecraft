@@ -1,0 +1,134 @@
+# Water bodies and their static surface levels (m NHN, DHHN2016). y = round(level).
+#
+# Water cells come from ALKIS land use (classes with `water = true` in blocks.toml). Prep
+# labels them by flood fill (4-connected) from each body's `seeds`; [[lock]] disks are
+# barriers during the fill, so water on either side of a lock gets different levels, and
+# lock cells then take the level of the nearest labeled cell. Any water component not
+# reached from a seed gets the median DGM1 height of its shoreline cells, and prep logs it.
+# Seed and lock coordinates are EPSG:25832; they were read from OpenStreetMap
+# (waterway=canal names and waterway=lock_gate / lock=yes ways) and are only used to
+# tell water bodies apart.
+
+# Where there is no DGM-W bed, the bed is the water level minus this depth, blended into
+# DGM-W over `blend_m` meters from the nearest DGM-W cell.
+default_depth_m = 3.0
+blend_m = 5.0
+
+# ALKIS assigns the water under bridges to the road, which cuts canals into pieces. A
+# non-water cell within `gap_max_m` (4-connected steps) of ALKIS water counts as water if
+# its DGM-W terrain is below `gap_bed_max_nhn`, or, where DGM-W has no data, if its DGM1
+# height equals (within `gap_flat_tol_m`) the DGM1 height of the water it extends: DGM1
+# flattens each water surface to one value, and that surface continues under bridges.
+# The infra stage adds the bridge decks.
+gap_bed_max_nhn = 0.5
+gap_flat_tol_m = 0.02
+gap_max_m = 40.0
+
+# Land cells (by ALKIS) that touch a water body and lie below its level are flooded, as at
+# mean high water: DGM1 (laser 2022, flown at a lower tide) shows banks, beaches and quay
+# aprons there as dry. The fill spreads only through cells below the level (4-connected),
+# so dikes and quay walls stop it; `flood_max_m` caps it. Flooded cells keep their DGM1
+# height as the bed and their land class.
+flood_max_m = 30.0
+
+# Water not reached from a seed gets the `unseeded_level_quantile` of its shoreline DGM1
+# as level: at the lower banks (the median stood above half of them). Streams run
+# downhill, so one level drowns their lower banks: a component whose shoreline DGM1 spans
+# more than `stream_split_spread_m` (p10 to p90) is split into bands of `stream_band_m`
+# (rounded down) by the DGM1 of each cell's nearest shoreline cell. Bands smaller than
+# `stream_min_piece_cells` join a lower band around them. Where bands meet, the ground stage
+# puts a one-block gate, like a small weir.
+unseeded_level_quantile = 0.1
+stream_split_spread_m = 1.5
+stream_band_m = 1.0
+stream_min_piece_cells = 200
+
+[[body]]
+id = "elbe_tidal"
+description = "Norderelbe, harbor basins and the tidal Fleete open to the Elbe (Zollkanal, Speicherstadt Fleete)"
+# Tidal level: mean high water, so the Fleete look full.
+level_nhn = 2.19
+level_kind = "MThw (mean tidal high water) 2021-2025 at gauge Hamburg St. Pauli (PEGELONLINE 5952050)"
+source = "Hamburg Port Authority, Gewässerkundliche Information 2026, https://www.hamburg-port-authority.de/fileadmin/user_upload/Gewaesserkundliche_Information_2026.pdf"
+# Other values from the same table:
+#   MTmw +0.42, MTnw -1.64 m NHN (2021-2025); BSH 2026 tide tables MHW +2.14, MNW -1.69.
+confidence = "official"
+# Norderelbe off the Landungsbrücken; Kaiser-Wilhelm-Hafen, which joins the Elbe further
+# west; Guanofleet (Steinwerder), tagged tidal=yes in OSM (way
+# 23366658 and its waterway to the Norderelbe), whose link is not open water in ALKIS
+# or DGM-W.
+seeds = [[564959.0, 5932892.0], [563873.0, 5931675.0], [564573.0, 5932564.0]]
+
+[[body]]
+id = "alster"
+description = "Binnenalster and Außenalster, held by the Rathausschleuse"
+level_nhn = 3.0
+level_kind = "regulated level, approximate"
+source = "https://de.wikipedia.org/wiki/Alsterschleusen ('etwa 3 Meter über Normal', unsourced); LSBG-Bericht 14 gives MW 2.94 m at Krugkoppelbrücke (not retrieved); WaBiHa reading 2.88 m NHN on 2026-10-26"
+confidence = "uncertain"
+# Kleine Alster, upstream of the Rathausschleuse.
+# The second seed is the Binnenalster (outside the pilot area; the first lies just north
+# of the Rathausschleuse, at the pilot's edge).
+seeds = [[565728.0, 5934095.0], [565812.7, 5934638.5]]
+
+[[body]]
+id = "alsterfleet"
+description = "Alsterfleet, locked at the Schaartorschleuse, independent of the Elbe tide"
+level_nhn = 1.6
+level_kind = "regulated level, approximate"
+source = "https://de.wikipedia.org/wiki/Alsterschleusen ('+1,6 m NN', unsourced)"
+confidence = "uncertain"
+# Alsterfleet south of the Rathausschleuse.
+seeds = [[565330.0, 5933797.0]]
+
+[[body]]
+id = "bille_hammerbrook"
+description = "Bille and the Hammerbrook canals (Schleusenkanal east of the Hammerbrookschleuse, Sonninkanal, Mittelkanal, Südkanal, …), held by the Hammerbrookschleuse and the Brandshofer Schleuse"
+level_nhn = 0.05
+level_kind = "Normalwasserstand (regulated)"
+source = "Fraunhofer CML, WaCaBa study, Annex 3, section 3.3 'Bille und Hammerbrookkanäle': 'Normalwasserstand NN + 0,05 m', https://www.cml.fraunhofer.de/content/dam/cml/de/documents/Studien/WaCaBa_Annexe.pdf (given in NN; the NN/NHN difference is centimeters)"
+confidence = "secondary source"
+# Sonninkanal; Schleusenkanal east of the Hammerbrookschleuse.
+seeds = [[567317.0, 5933596.0], [567240.0, 5933374.0]]
+
+# OSM water structures are barriers too: at city scale the seeded fills would
+# otherwise run through every lock and weir into regulated canals, polder ditches and the
+# reaches above weirs. Prep reads lock gates, locks (lock=yes), weirs, sluice gates and
+# dams from the pinned OSM extract and covers each with disks of this radius (m) along
+# it; the water behind them gets its own level (median shoreline DGM1, unless seeded).
+[osm_barriers]
+lock_gate = 12.0
+lock = 12.0
+weir = 8.0
+sluice_gate = 8.0
+dam = 8.0
+
+[[lock]]
+name = "Rathausschleuse"
+center = [565710.0, 5934075.0]
+radius_m = 25.0
+
+[[lock]]
+name = "Schaartorschleuse"
+center = [565163.0, 5933419.0]
+radius_m = 25.0
+
+[[lock]]
+name = "Mühlenschleuse"
+center = [565680.5, 5933787.3]
+radius_m = 12.0
+
+[[lock]]
+name = "lock gate (unnamed, OSM node near Herrengrabenfleet)"
+center = [565192.6, 5933749.8]
+radius_m = 12.0
+
+[[lock]]
+name = "Hammerbrookschleuse"
+center = [566991.3, 5933253.1]
+radius_m = 30.0
+
+[[lock]]
+name = "Brandshofer Schleuse"
+center = [567918.0, 5932877.0]
+radius_m = 30.0

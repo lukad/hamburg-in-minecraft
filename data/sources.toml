@@ -1,0 +1,1460 @@
+# Every dataset the pipeline uses, with provenance, license and pinned checksums.
+#
+# Schema (see crates/hhmc-fetch/src/sources.rs): one [[source]] per dataset and one
+# [[source.files]] per file. `member` = extract only that member of the zip at `url`
+# via HTTP range requests. `bbox` = EPSG:25832 footprint, used by `fetch --area`.
+# `sha256`, `size_bytes` and `retrieved` are written by `hhmc fetch --pin`; do not
+# edit them by hand. ATTRIBUTION.md is generated from this file (`hhmc attribution`).
+
+[[source]]
+id = "dgm1"
+title = "Geländemodelle Hamburg - DGM (DGM1 2022)"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/gelaendemodelle-hamburg-dgm2"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+crs = "EPSG:25832"
+vertical_datum = "DHHN2016 (NHN), quasigeoid GCG2016"
+used_for = "Ground height on land (stage ground); ground-height QA"
+notes = "Metadata https://metaver.de/trefferanzeige?docuuid=aeca28b5-503e-4e69-b796-eb0fbebbad0a. 1 km GeoTIFF tiles (Float32, 1 m, area pixels on whole meters) inside one city-wide zip of 1,364,773,543 bytes; only the needed members are extracted. Laser scan 2022-03. Water surfaces are flattened to 2.0 m NHN."
+retrieved = "2026-10-27"
+size_bytes = 1360362482
+
+
+[source.tiled]
+kind = "utm32_km"
+suffix = ".tif"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_563/dgm1_32_563_5931_1_hh_2022.tif"
+path = "dgm1_32_563_5931_1_hh_2022.tif"
+bbox = [563000, 5931000, 564000, 5932000]
+sha256 = "22b12b63bd91219fd84cba31960f8ba74e4e708f2c73aa512526073ecef34ca2"
+size_bytes = 829582
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_563/dgm1_32_563_5932_1_hh_2022.tif"
+path = "dgm1_32_563_5932_1_hh_2022.tif"
+bbox = [563000, 5932000, 564000, 5933000]
+sha256 = "6bfeb60769662f45c17e4eb07532780d8af5089600bb02990c8c6ca54a46f9cf"
+size_bytes = 757128
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_563/dgm1_32_563_5933_1_hh_2022.tif"
+path = "dgm1_32_563_5933_1_hh_2022.tif"
+bbox = [563000, 5933000, 564000, 5934000]
+sha256 = "5cd9d7d0f167764a2c54cacd66f70f36f83a22771e0c4ef338a29de93a04ec7f"
+size_bytes = 1417640
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_563/dgm1_32_563_5934_1_hh_2022.tif"
+path = "dgm1_32_563_5934_1_hh_2022.tif"
+bbox = [563000, 5934000, 564000, 5935000]
+sha256 = "d2bef630fa7ce71b2f4676947da7ca750d48cc0c785cd4a226da95ccb674f5a3"
+size_bytes = 2041043
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_564/dgm1_32_564_5931_1_hh_2022.tif"
+path = "dgm1_32_564_5931_1_hh_2022.tif"
+bbox = [564000, 5931000, 565000, 5932000]
+sha256 = "0ff13a1fe25fe8e9837bb988b86bd9b3b262532b0bb2ea7694608c1b659899a8"
+size_bytes = 1153469
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_564/dgm1_32_564_5932_1_hh_2022.tif"
+path = "dgm1_32_564_5932_1_hh_2022.tif"
+bbox = [564000, 5932000, 565000, 5933000]
+sha256 = "1e988347694c7c98ed9326e0b1ed1ecef6a7e69f2a683607d221d0ecf875e735"
+size_bytes = 1126534
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_564/dgm1_32_564_5933_1_hh_2022.tif"
+path = "dgm1_32_564_5933_1_hh_2022.tif"
+bbox = [564000, 5933000, 565000, 5934000]
+sha256 = "a565720be730362b2954d968585c7229cad8ff587cd3f520c6ff11d2ccb73276"
+size_bytes = 1428766
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_564/dgm1_32_564_5934_1_hh_2022.tif"
+path = "dgm1_32_564_5934_1_hh_2022.tif"
+bbox = [564000, 5934000, 565000, 5935000]
+sha256 = "d73f361c11258703bbe80c9b5e6104e6ec9428aac39c4dcbd9508d05ee36888f"
+size_bytes = 1858587
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_565/dgm1_32_565_5931_1_hh_2022.tif"
+path = "dgm1_32_565_5931_1_hh_2022.tif"
+bbox = [565000, 5931000, 566000, 5932000]
+sha256 = "22ba6fb3552286a775033c0f6c749338ba2ba265024c00e75e842202d601ea04"
+size_bytes = 1441796
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_565/dgm1_32_565_5932_1_hh_2022.tif"
+path = "dgm1_32_565_5932_1_hh_2022.tif"
+bbox = [565000, 5932000, 566000, 5933000]
+sha256 = "9c1208a85aa5fa24603536b5e963694ca673fcf1158ebb7600de8419786101a1"
+size_bytes = 743121
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_565/dgm1_32_565_5933_1_hh_2022.tif"
+path = "dgm1_32_565_5933_1_hh_2022.tif"
+bbox = [565000, 5933000, 566000, 5934000]
+sha256 = "f3d9c41bca01945659da1bc0ebcbb2a66fc33ffe79f85478ccafc60b6d32d370"
+size_bytes = 1558725
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_565/dgm1_32_565_5934_1_hh_2022.tif"
+path = "dgm1_32_565_5934_1_hh_2022.tif"
+bbox = [565000, 5934000, 566000, 5935000]
+sha256 = "6e8c3f8de780a272865aaf7948116876a91d6f8f25ea2b691880f3d9a41b7c58"
+size_bytes = 1970201
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_566/dgm1_32_566_5931_1_hh_2022.tif"
+path = "dgm1_32_566_5931_1_hh_2022.tif"
+bbox = [566000, 5931000, 567000, 5932000]
+sha256 = "98106228c6e0ee347a8865fd95aa6dcaec7ea0fae21e9a7008f24176e5ebd5eb"
+size_bytes = 1247015
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_566/dgm1_32_566_5932_1_hh_2022.tif"
+path = "dgm1_32_566_5932_1_hh_2022.tif"
+bbox = [566000, 5932000, 567000, 5933000]
+sha256 = "7899952f84f6afc7d06b1acdbdef6099a2c41feb4bc7ce7bdb621c5c2bbe06d1"
+size_bytes = 886054
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_566/dgm1_32_566_5933_1_hh_2022.tif"
+path = "dgm1_32_566_5933_1_hh_2022.tif"
+bbox = [566000, 5933000, 567000, 5934000]
+sha256 = "72696efaa3a3a9fbd7f86ffeee268f39c89ecbf9053b762f3a47c1651f11d182"
+size_bytes = 1750527
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_566/dgm1_32_566_5934_1_hh_2022.tif"
+path = "dgm1_32_566_5934_1_hh_2022.tif"
+bbox = [566000, 5934000, 567000, 5935000]
+sha256 = "fd07ebca576b260f8745f4104db4ea6407e4b8c36b796512994fb72bcf8d3204"
+size_bytes = 1728459
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_567/dgm1_32_567_5931_1_hh_2022.tif"
+path = "dgm1_32_567_5931_1_hh_2022.tif"
+bbox = [567000, 5931000, 568000, 5932000]
+sha256 = "98c63cfa87ae02bb51b36a986e0f8553a780132437156cdbdeef17b48b970162"
+size_bytes = 1594530
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_567/dgm1_32_567_5932_1_hh_2022.tif"
+path = "dgm1_32_567_5932_1_hh_2022.tif"
+bbox = [567000, 5932000, 568000, 5933000]
+sha256 = "d1e96deb1677c0f6d2af2f104c0988080ea680ee112cdec60470c6ec6a9e12e9"
+size_bytes = 1144803
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_567/dgm1_32_567_5933_1_hh_2022.tif"
+path = "dgm1_32_567_5933_1_hh_2022.tif"
+bbox = [567000, 5933000, 568000, 5934000]
+sha256 = "d5ef4bf88b569d5eb0decc7f581002cce492ee139fb62959cdc29e2b9125c062"
+size_bytes = 1794169
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_hoehenmodelle/dgm/dgm1_hh_2022-04-30.zip"
+member = "dgm1_hh_2022-04-30/dgm1_hh_2022/s32_567/dgm1_32_567_5934_1_hh_2022.tif"
+path = "dgm1_32_567_5934_1_hh_2022.tif"
+bbox = [567000, 5934000, 568000, 5935000]
+sha256 = "28a4254d5481c6d90a3a5731cdbe3a80e8f19d1595de81086a9e677fc8c7e310"
+size_bytes = 2074907
+
+
+[[source]]
+id = "bdom1"
+title = "Digitales Höhenmodell Hamburg - bDOM (2022)"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/digitales-hoehenmodell-hamburg-bdom8"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+crs = "EPSG:25832"
+vertical_datum = "DHHN2016 (NHN)"
+used_for = "Surface-height and roof QA, canopy height (DOM - DGM) for vegetation"
+notes = "Image-matching DSM (not laser), 1 m, by-product of the True-DOP. Metadata https://metaver.de/trefferanzeige?docuuid=2AB332A1-B1B6-4706-9546-33F0B1EADB6D. 1 km GeoTIFF tiles inside one zip of 1,344,475,498 bytes. Noisy over water. Substitute for a laser DOM1, which is not published."
+retrieved = "2026-10-27"
+size_bytes = 3304971184
+
+
+[source.tiled]
+kind = "utm32_km"
+suffix = ".tif"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_563/dom1_32_563_5931_1_hh_2022.tif"
+path = "dom1_32_563_5931_1_hh_2022.tif"
+bbox = [563000, 5931000, 564000, 5932000]
+sha256 = "ea90b66916024135c7c20f377f082f8c788e9eefbffd7c061cf46ed9e0f9316a"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_563/dom1_32_563_5932_1_hh_2022.tif"
+path = "dom1_32_563_5932_1_hh_2022.tif"
+bbox = [563000, 5932000, 564000, 5933000]
+sha256 = "fbccef466026ed4f0e60c750c6f2c57126ec009f14d8e0154a844883edf10e79"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_563/dom1_32_563_5933_1_hh_2022.tif"
+path = "dom1_32_563_5933_1_hh_2022.tif"
+bbox = [563000, 5933000, 564000, 5934000]
+sha256 = "75c21037fc78016cea9a9c1d40b301b06428698599aa4e61842145bd791eadc8"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_563/dom1_32_563_5934_1_hh_2022.tif"
+path = "dom1_32_563_5934_1_hh_2022.tif"
+bbox = [563000, 5934000, 564000, 5935000]
+sha256 = "1695a807a41ef3637b23dae5645ee697be62d9f67c367d0cf8b482d35e5b8b4f"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_564/dom1_32_564_5931_1_hh_2022.tif"
+path = "dom1_32_564_5931_1_hh_2022.tif"
+bbox = [564000, 5931000, 565000, 5932000]
+sha256 = "2ad25a29d1bcb4db77815e4d21c035fd212e786328a07560f6dc8e90d8c1bbac"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_564/dom1_32_564_5932_1_hh_2022.tif"
+path = "dom1_32_564_5932_1_hh_2022.tif"
+bbox = [564000, 5932000, 565000, 5933000]
+sha256 = "4451d08897e1acf8a8fbae28a7cd4aff4f171a5bda71881009b788715eb680e8"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_564/dom1_32_564_5933_1_hh_2022.tif"
+path = "dom1_32_564_5933_1_hh_2022.tif"
+bbox = [564000, 5933000, 565000, 5934000]
+sha256 = "c6f66b37cc68565a557a2b7c079b398bdce97fec9d030de6469735253f943b77"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_564/dom1_32_564_5934_1_hh_2022.tif"
+path = "dom1_32_564_5934_1_hh_2022.tif"
+bbox = [564000, 5934000, 565000, 5935000]
+sha256 = "5318cea8d578d67c9f6f42d4428931acd8a0942a30d72df8dbd8b0b32d0321b9"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_565/dom1_32_565_5931_1_hh_2022.tif"
+path = "dom1_32_565_5931_1_hh_2022.tif"
+bbox = [565000, 5931000, 566000, 5932000]
+sha256 = "53837d7ec7d7b75f7b26d55115395a545b3413590be8ce608a4d8a0c5c2284d0"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_565/dom1_32_565_5932_1_hh_2022.tif"
+path = "dom1_32_565_5932_1_hh_2022.tif"
+bbox = [565000, 5932000, 566000, 5933000]
+sha256 = "efbb0e33c07dfbbd2e30e335d875b7f06a24512b0f842d47177da43b861d85ba"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_565/dom1_32_565_5933_1_hh_2022.tif"
+path = "dom1_32_565_5933_1_hh_2022.tif"
+bbox = [565000, 5933000, 566000, 5934000]
+sha256 = "6d95d3dbf842d68cf68393db2adc0450319ef93700da90fe0b58ed69e3498c85"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_565/dom1_32_565_5934_1_hh_2022.tif"
+path = "dom1_32_565_5934_1_hh_2022.tif"
+bbox = [565000, 5934000, 566000, 5935000]
+sha256 = "429c54387cf42b9c633dc0a38e9569987a2eef8992f1c71c09553836c9b1eec1"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_566/dom1_32_566_5931_1_hh_2022.tif"
+path = "dom1_32_566_5931_1_hh_2022.tif"
+bbox = [566000, 5931000, 567000, 5932000]
+sha256 = "f054c43f3936f64fcb4eb7f0f4f0b52f5611531bf8336ec17576f55f7434e5ac"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_566/dom1_32_566_5932_1_hh_2022.tif"
+path = "dom1_32_566_5932_1_hh_2022.tif"
+bbox = [566000, 5932000, 567000, 5933000]
+sha256 = "0ba694c970c105bc43540e1a3792b06aa245e74cc4283759294458a305f9a1ff"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_566/dom1_32_566_5933_1_hh_2022.tif"
+path = "dom1_32_566_5933_1_hh_2022.tif"
+bbox = [566000, 5933000, 567000, 5934000]
+sha256 = "59cad41282f00a4a6b0a38b41c8069a9aa41ff43696dba639ae482ff9fc1476d"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_566/dom1_32_566_5934_1_hh_2022.tif"
+path = "dom1_32_566_5934_1_hh_2022.tif"
+bbox = [566000, 5934000, 567000, 5935000]
+sha256 = "b1c04a02974e5289c4b5796c943fc7d5db1bd138fa3b11a390a2f2174ba8d2b3"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_567/dom1_32_567_5931_1_hh_2022.tif"
+path = "dom1_32_567_5931_1_hh_2022.tif"
+bbox = [567000, 5931000, 568000, 5932000]
+sha256 = "e7ca76e57ebd35bc42cfea4928d5e889566ca11f688dd8e81dd79e0275804e3e"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_567/dom1_32_567_5932_1_hh_2022.tif"
+path = "dom1_32_567_5932_1_hh_2022.tif"
+bbox = [567000, 5932000, 568000, 5933000]
+sha256 = "9844ba7779a60a228a0d570e1ac0c05ea1a5d5029a38c9048c242f2f891bd07e"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_567/dom1_32_567_5933_1_hh_2022.tif"
+path = "dom1_32_567_5933_1_hh_2022.tif"
+bbox = [567000, 5933000, 568000, 5934000]
+sha256 = "eff4466efc4b63425af05b43bf98a4fa915800ea3783b4df62de59cb1d73d206"
+size_bytes = 4003566
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/Digitales_Hoehenmodell_bDOM/dom1_hh_2022-11-21.zip"
+member = "S32_567/dom1_32_567_5934_1_hh_2022.tif"
+path = "dom1_32_567_5934_1_hh_2022.tif"
+bbox = [567000, 5934000, 568000, 5935000]
+sha256 = "68c16d6b7d201a8bf71abd6060411c4f24c330a8e1554d2dcebeb85341080764"
+size_bytes = 4003566
+
+
+[[source]]
+id = "dop20"
+title = "Luftbilder Hamburg - DOP Zeitreihe unbelaubt (True-DOP 2026, 20 cm)"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/luftbilder-hamburg-dop-zeitreihe-unbelaubt7"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+crs = "EPSG:25832"
+used_for = "Ground color and color QA; WMS backdrop of the web map"
+notes = "Flight 2026-03-19, RGBI 8-bit, 5000x5000 px JPEG-compressed GeoTIFF per 1 km tile, one zip per district (Hamburg-Mitte 3,892,458,242 bytes). Tiles on district borders are split into masked parts (_1 Mitte, _2 Altona, _3 Eimsbüttel, _4 Hamburg-Nord) that prep mosaics. WMS https://geodienste.hamburg.de/wms_dop_zeitreihe_unbelaubt layer dop_zeitreihe_unbelaubt. Metadata https://metaver.de/trefferanzeige?docuuid=86bbb89e-df36-4436-b394-913998629ba5."
+retrieved = "2026-10-27"
+size_bytes = 25694733146
+
+
+[source.tiled]
+kind = "utm32_km"
+suffix = ".tif"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Altona.zip"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Bergedorf.zip"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Eimsbuettel.zip"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Nord.zip"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Harburg.zip"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Wandsbek.zip"
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_563_5931_1_hh_2026_1.tif"
+path = "dop20rgbi_32_563_5931_1_hh_2026_1.tif"
+bbox = [563000, 5931000, 564000, 5932000]
+sha256 = "61881924455ea6e3054b32e974aecb606a84b56a041bd441c83a0e11f3573117"
+size_bytes = 18767233
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_563_5932_1_hh_2026_1.tif"
+path = "dop20rgbi_32_563_5932_1_hh_2026_1.tif"
+bbox = [563000, 5932000, 564000, 5933000]
+sha256 = "fd8fff05df558c3c66335df8c4649b20399de03d556d09d5b65f1bc5bb9c383d"
+size_bytes = 22360091
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_563_5933_1_hh_2026_1.tif"
+path = "dop20rgbi_32_563_5933_1_hh_2026_1.tif"
+bbox = [563000, 5933000, 564000, 5934000]
+sha256 = "cd55a44dfab7478d43383fa5ed1043dbc2921e34c848cbeec86345b8d9f98909"
+size_bytes = 17599279
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_563_5934_1_hh_2026_1.tif"
+path = "dop20rgbi_32_563_5934_1_hh_2026_1.tif"
+bbox = [563000, 5934000, 564000, 5935000]
+sha256 = "6153873695308f7fbdc381a0c6f4f727069d4688a396ed871694389bdb6c1c03"
+size_bytes = 17725781
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_564_5931_1_hh_2026_1.tif"
+path = "dop20rgbi_32_564_5931_1_hh_2026_1.tif"
+bbox = [564000, 5931000, 565000, 5932000]
+sha256 = "8555309aec3202f2a2373be30a136de5dfeee4686e9faf4b3e5bdab7422abc6a"
+size_bytes = 24138655
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_564_5932_1_hh_2026_1.tif"
+path = "dop20rgbi_32_564_5932_1_hh_2026_1.tif"
+bbox = [564000, 5932000, 565000, 5933000]
+sha256 = "4d846ff01ce46c4c15e397992d3337c529b694a4d5e0e7f56b765984dc6bf513"
+size_bytes = 26233065
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_564_5933_1_hh_2026_1.tif"
+path = "dop20rgbi_32_564_5933_1_hh_2026_1.tif"
+bbox = [564000, 5933000, 565000, 5934000]
+sha256 = "0b7475b63ef006f18acfb3f69cd8286c9f19982751777afc7752ac4ef7a1028c"
+size_bytes = 28453739
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_564_5934_1_hh_2026_1.tif"
+path = "dop20rgbi_32_564_5934_1_hh_2026_1.tif"
+bbox = [564000, 5934000, 565000, 5935000]
+sha256 = "eec0b49d53bebfc8fef87d85dbd2cb77287b3c8813878a4ce4a851a912106142"
+size_bytes = 34270521
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_565_5931_1_hh_2026_1.tif"
+path = "dop20rgbi_32_565_5931_1_hh_2026_1.tif"
+bbox = [565000, 5931000, 566000, 5932000]
+sha256 = "f06998a641610be4f3f4da37367dc9e7cf2a43333bffeb3e27855cab46d1f250"
+size_bytes = 27758501
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_565_5932_1_hh_2026_1.tif"
+path = "dop20rgbi_32_565_5932_1_hh_2026_1.tif"
+bbox = [565000, 5932000, 566000, 5933000]
+sha256 = "b530cd29e6d751e13010d3f4fcfe2acd65818d8c57b094f6fec157a581428410"
+size_bytes = 20448931
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_565_5933_1_hh_2026_1.tif"
+path = "dop20rgbi_32_565_5933_1_hh_2026_1.tif"
+bbox = [565000, 5933000, 566000, 5934000]
+sha256 = "8820a3726207f1bb63da998c4fe81ba1bcc4a22a80100a0a0b2c8bc4925bcb6f"
+size_bytes = 30281437
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_565_5934_1_hh_2026_1.tif"
+path = "dop20rgbi_32_565_5934_1_hh_2026_1.tif"
+bbox = [565000, 5934000, 566000, 5935000]
+sha256 = "5dfe271e254820b810a974c820d60b1545af1c36bbf005156b15d5560b022deb"
+size_bytes = 29198687
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_566_5931_1_hh_2026_1.tif"
+path = "dop20rgbi_32_566_5931_1_hh_2026_1.tif"
+bbox = [566000, 5931000, 567000, 5932000]
+sha256 = "d454d8ae7eb273daca3ea490fece5bb2f858f9935cae91daedad625928481f04"
+size_bytes = 26331747
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_566_5932_1_hh_2026_1.tif"
+path = "dop20rgbi_32_566_5932_1_hh_2026_1.tif"
+bbox = [566000, 5932000, 567000, 5933000]
+sha256 = "c1b975b7f3b2e3d0de050e5f54e91f140b12da50b57b35de14273b07f14377c4"
+size_bytes = 21911667
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_566_5933_1_hh_2026_1.tif"
+path = "dop20rgbi_32_566_5933_1_hh_2026_1.tif"
+bbox = [566000, 5933000, 567000, 5934000]
+sha256 = "50019335c1b1c06e63c5f63832c5f4eba1c293007e595dfebf0379b8ab0e3abc"
+size_bytes = 31314425
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_566_5934_1_hh_2026_1.tif"
+path = "dop20rgbi_32_566_5934_1_hh_2026_1.tif"
+bbox = [566000, 5934000, 567000, 5935000]
+sha256 = "f4512af01eb83030a753faf356f4fa0719ea98da164f5a1927e00b0d0cb824f7"
+size_bytes = 29692243
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_567_5931_1_hh_2026_1.tif"
+path = "dop20rgbi_32_567_5931_1_hh_2026_1.tif"
+bbox = [567000, 5931000, 568000, 5932000]
+sha256 = "25dbece670aaf1f8ed45ee8d62d14211e3c1f814c924246b30b341b95de75eb3"
+size_bytes = 28006215
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_567_5932_1_hh_2026_1.tif"
+path = "dop20rgbi_32_567_5932_1_hh_2026_1.tif"
+bbox = [567000, 5932000, 568000, 5933000]
+sha256 = "63d0de7cff9dcd6d6ac588a51c1eb8782acc5bb42622b62723ecd0cd722f2c26"
+size_bytes = 25212589
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_567_5933_1_hh_2026_1.tif"
+path = "dop20rgbi_32_567_5933_1_hh_2026_1.tif"
+bbox = [567000, 5933000, 568000, 5934000]
+sha256 = "cc74af72d44b8f2e6fc298e5ca4d89512e74d94671317bb76e9816d7052283de"
+size_bytes = 33150255
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Mitte.zip"
+member = "dop20rgbi_32_567_5934_1_hh_2026_1.tif"
+path = "dop20rgbi_32_567_5934_1_hh_2026_1.tif"
+bbox = [567000, 5934000, 568000, 5935000]
+sha256 = "cda3eaa4127e01f6e35ea50dcf92f0e4fdc87aef645f850898c043c75d895dd3"
+size_bytes = 33173723
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Altona.zip"
+member = "dop20rgbi_32_563_5933_1_hh_2026_2.tif"
+path = "dop20rgbi_32_563_5933_1_hh_2026_2.tif"
+bbox = [563000, 5933000, 564000, 5934000]
+sha256 = "d6f0c84c91469412d8b8d817dbc8276432ab9d2b492d2c97726c9a2e974dede3"
+size_bytes = 11193913
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Altona.zip"
+member = "dop20rgbi_32_563_5934_1_hh_2026_2.tif"
+path = "dop20rgbi_32_563_5934_1_hh_2026_2.tif"
+bbox = [563000, 5934000, 564000, 5935000]
+sha256 = "a72f5e2a60457b071c41c809d5e4d064262eb4fb69867f59b412a2d7f5599328"
+size_bytes = 18818397
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Altona.zip"
+member = "dop20rgbi_32_564_5934_1_hh_2026_2.tif"
+path = "dop20rgbi_32_564_5934_1_hh_2026_2.tif"
+bbox = [564000, 5934000, 565000, 5935000]
+sha256 = "c908e053925559575664ecf869a81342d0644ccd8ff1bedc0b220845983d3234"
+size_bytes = 1071395
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Eimsbuettel.zip"
+member = "dop20rgbi_32_565_5934_1_hh_2026_3.tif"
+path = "dop20rgbi_32_565_5934_1_hh_2026_3.tif"
+bbox = [565000, 5934000, 566000, 5935000]
+sha256 = "0725d81603fff23e41ff302a9bfbedad731d799548b13a2e9f2e6e980f7060be"
+size_bytes = 2625867
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Eimsbuettel.zip"
+member = "dop20rgbi_32_566_5934_1_hh_2026_3.tif"
+path = "dop20rgbi_32_566_5934_1_hh_2026_3.tif"
+bbox = [566000, 5934000, 567000, 5935000]
+sha256 = "9c29d17707b3230c4ad059aead649809e3b076465654b69dc338f49e43b74c68"
+size_bytes = 865971
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/fernerkundung_luftbilder/dop_unbelaubt/DOP2026_unbelaubt_Hamburg_Hamburg-Nord.zip"
+member = "dop20rgbi_32_567_5934_1_hh_2026_4.tif"
+path = "dop20rgbi_32_567_5934_1_hh_2026_4.tif"
+bbox = [567000, 5934000, 568000, 5935000]
+sha256 = "d02c1bc50ac676603f998e44647e0e6ab0bac6abd76a2edcc41ffd3a214d9ee2"
+size_bytes = 2348141
+
+
+[[source]]
+id = "dgmw"
+title = "Digitales Geländemodell des Wasserlaufs Unter- und Außenelbe 2022 (DGM-W 2022), Teilgebiete Hamburg, Wedel, Buxtehude, Geesthacht"
+publisher = "Wasserstraßen- und Schifffahrtsverwaltung des Bundes (WSV), WSA Elbe-Nordsee; bereitgestellt durch ZDM GDWS"
+landing_url = "https://gdk.gdi-de.org/gdi-de/srv/eng/csw?service=CSW&request=GetRecordById&version=2.0.2&id=2B180726-D52C-466D-B899-955B6F41475C&outputSchema=http://www.isotc211.org/2005/gmd&elementSetName=full"
+license = "GeoNutzV"
+license_url = "https://www.gesetze-im-internet.de/geonutzv/BJNR054700013.html"
+attribution = "© Wasserstraßen- und Schifffahrtsverwaltung des Bundes (WSV), DGM-W 2022 Unter- und Außenelbe, Daten geändert"
+crs = "EPSG:25832"
+vertical_datum = "DHHN2016 (NHN)"
+used_for = "River, harbor basin and Fleet floor heights (stage ground)"
+notes = "The record's source field is empty; the attribution wording is derived from the publisher and dataset names. ALS 04/2022 plus echo sounding 2017-2023. Float32 GeoTIFF, LZW, 1 m on whole meters, NoData -9999. The Hamburg part covers E 560000-574000, N 5919000-5934000, so the inner city north of N ~5933400-5933740 has no data. The data-source map (Datenquellenkarte) shows per polygon whether heights come from laser or echo sounding."
+retrieved = "2026-10-27"
+size_bytes = 503592733
+
+
+[[source.files]]
+url = "https://www.kuestendaten.de/media/zdm/portaltideelbe/Allgemeine_Informationen/Archiv/GIS/DGM-W_Unterelbe_2022_1x1m/Geotiff/DGM-W_2022_Unter-_und_Aussenelbe_1x1m_Hamburg.tif"
+path = "DGM-W_2022_Unter-_und_Aussenelbe_1x1m_Hamburg.tif"
+bbox = [560000, 5919000, 574000, 5934000]
+sha256 = "4223d72984f2e27d587252487c2e95fcc92708266684f212b3b5dc65571377ca"
+size_bytes = 120752444
+
+
+[[source.files]]
+url = "https://www.kuestendaten.de/media/zdm/portaltideelbe/Allgemeine_Informationen/Archiv/GIS/DGM-W_Unterelbe_2022_1x1m/Geotiff/DGM-W_2022_Unter-_und_Aussenelbe_1x1m_Wedel.tif"
+path = "DGM-W_2022_Unter-_und_Aussenelbe_1x1m_Wedel.tif"
+bbox = [531000, 5936000, 550000, 5944000]
+sha256 = "c4621ad0804a047bf6d09501bc9f48802efc22ece82dcf729a5603b59d6e5991"
+size_bytes = 102289271
+
+
+[[source.files]]
+url = "https://www.kuestendaten.de/media/zdm/portaltideelbe/Allgemeine_Informationen/Archiv/GIS/DGM-W_Unterelbe_2022_1x1m/Geotiff/DGM-W_2022_Unter-_und_Aussenelbe_1x1m_Buxtehude.tif"
+path = "DGM-W_2022_Unter-_und_Aussenelbe_1x1m_Buxtehude.tif"
+bbox = [538000, 5925000, 560000, 5936000]
+sha256 = "51e78a71b801a2d81b2157d64f0895c8242344862cef6df823d4ee87f2e46c47"
+size_bytes = 100612906
+
+
+[[source.files]]
+url = "https://www.kuestendaten.de/media/zdm/portaltideelbe/Allgemeine_Informationen/Archiv/GIS/DGM-W_Unterelbe_2022_1x1m/Geotiff/DGM-W_2022_Unter-_und_Aussenelbe_1x1m_Geesthacht.tif"
+path = "DGM-W_2022_Unter-_und_Aussenelbe_1x1m_Geesthacht.tif"
+bbox = [574000, 5912000, 590000, 5922000]
+sha256 = "3a7fbfc0e20c9dc10edfc5b16ffdf6b77d90e050258a195e7c5ef18bfb0622d7"
+size_bytes = 55617353
+
+
+[[source.files]]
+url = "https://www.kuestendaten.de/media/zdm/kuestendaten/Dokumente/3D-Datenarchiv/Datenquellkarte_Aussen-und_Unterelbe_DGM-W_2022.zip"
+path = "Datenquellkarte_Aussen-und_Unterelbe_DGM-W_2022.zip"
+sha256 = "31583f420e08a07ac1a581be57fe8ea40b91968f483c31a079d5c73411d59805"
+size_bytes = 124320759
+
+[[source]]
+id = "lod2"
+title = "3D-Gebäudemodell LoD2-DE Hamburg (2026-04-28)"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/3d-gebaeudemodell-lod2-de-hamburg2"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+crs = "EPSG:25832"
+vertical_datum = "DHHN2016 (NHN)"
+used_for = "Building geometry fallback and buildings newer than LoD3 (stage buildings)"
+notes = "Metadata id 2C1F2EEC-CF9F-4D8B-ACAC-79D8C1334D5E. CityGML 1.0 (AdV profile), srsName urn:adv:crs:ETRS89_UTM32*DE_DHHN2016_NH. One zip of 659,524,658 bytes with 1 km tiles LoD2_32_<Ekm>_<Nkm>_1_HH.gml. gml:id is the ALKIS id (DEHHALKA...). Footprints early 2026; heights ALS 2022 plus image matching 2024/25."
+retrieved = "2026-10-27"
+size_bytes = 6719971461
+
+
+
+[source.tiled]
+kind = "utm32_km"
+suffix = ".gml"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_563_5931_1_HH.gml"
+path = "LoD2_32_563_5931_1_HH.gml"
+bbox = [563000, 5931000, 564000, 5932000]
+sha256 = "15228be293ad87ff8bd5d278c467bc55fcf5b4e5a630a33970ee6311c9abafc8"
+size_bytes = 432588
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_563_5932_1_HH.gml"
+path = "LoD2_32_563_5932_1_HH.gml"
+bbox = [563000, 5932000, 564000, 5933000]
+sha256 = "61d7f092dc0fafcba11fdb78d210cd04100aa02bc39a0b7513c0a00e22dac78b"
+size_bytes = 2243840
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_563_5933_1_HH.gml"
+path = "LoD2_32_563_5933_1_HH.gml"
+bbox = [563000, 5933000, 564000, 5934000]
+sha256 = "240727fda74fa2c3d52d664a11e078038d12895d8c0ab6bcec384cb8c307fa10"
+size_bytes = 16199722
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_563_5934_1_HH.gml"
+path = "LoD2_32_563_5934_1_HH.gml"
+bbox = [563000, 5934000, 564000, 5935000]
+sha256 = "0b34895eb20c37b463397ed2f972111cbd73235dd5e09b89f6f9ffe3b67a5db8"
+size_bytes = 24253678
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_564_5931_1_HH.gml"
+path = "LoD2_32_564_5931_1_HH.gml"
+bbox = [564000, 5931000, 565000, 5932000]
+sha256 = "17ce4433af5d6658e66c8fc467c8b3fa57daf4a137306a9985df2aa0dfe43bb6"
+size_bytes = 3723906
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_564_5932_1_HH.gml"
+path = "LoD2_32_564_5932_1_HH.gml"
+bbox = [564000, 5932000, 565000, 5933000]
+sha256 = "00f69415f9ec75d379444599d82a48d2893660ffdf7d5f8ad50e7207d3a01a7b"
+size_bytes = 9091704
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_564_5933_1_HH.gml"
+path = "LoD2_32_564_5933_1_HH.gml"
+bbox = [564000, 5933000, 565000, 5934000]
+sha256 = "f2d8339f33fa6478230eaeae64568c536b672ef5677cbf33640df7a882a85eac"
+size_bytes = 11476662
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_564_5934_1_HH.gml"
+path = "LoD2_32_564_5934_1_HH.gml"
+bbox = [564000, 5934000, 565000, 5935000]
+sha256 = "ea814275d289b774b04d5891edcb7c9af17b42543e7d301994e67e3c4a4e3970"
+size_bytes = 13907040
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_565_5931_1_HH.gml"
+path = "LoD2_32_565_5931_1_HH.gml"
+bbox = [565000, 5931000, 566000, 5932000]
+sha256 = "6165a31fe0b6dd6c34a3c146b141ccc1470850e798cadd42c48af75519be157b"
+size_bytes = 1910181
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_565_5932_1_HH.gml"
+path = "LoD2_32_565_5932_1_HH.gml"
+bbox = [565000, 5932000, 566000, 5933000]
+sha256 = "b7b09d18a8255d8fb3ee99188c17e046f6f13a9814e7b192efc105972e5af292"
+size_bytes = 19239308
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_565_5933_1_HH.gml"
+path = "LoD2_32_565_5933_1_HH.gml"
+bbox = [565000, 5933000, 566000, 5934000]
+sha256 = "2f3c7e99260c78384eeb54c68c797ee9a8032df851faf59019baddb16673e22e"
+size_bytes = 15303476
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_565_5934_1_HH.gml"
+path = "LoD2_32_565_5934_1_HH.gml"
+bbox = [565000, 5934000, 566000, 5935000]
+sha256 = "d8b8f765d65ea0a230fed376bbc96e185fa67211040c32a3cc3c81e044c65f48"
+size_bytes = 17705300
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_566_5931_1_HH.gml"
+path = "LoD2_32_566_5931_1_HH.gml"
+bbox = [566000, 5931000, 567000, 5932000]
+sha256 = "34299f5bbacd888ad1976c133104c6ad502e00e98be639b23577f2c2f07ac4c3"
+size_bytes = 1781296
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_566_5932_1_HH.gml"
+path = "LoD2_32_566_5932_1_HH.gml"
+bbox = [566000, 5932000, 567000, 5933000]
+sha256 = "d121e4e0e72012a5dc83306f094e5cee745d4beb8e5280754f43cbf13ebf2d77"
+size_bytes = 1316723
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_566_5933_1_HH.gml"
+path = "LoD2_32_566_5933_1_HH.gml"
+bbox = [566000, 5933000, 567000, 5934000]
+sha256 = "7ef52734b034feb4a8195f389d763d74994c9f8a320f0fadc223a588a8cbc7cc"
+size_bytes = 10061088
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_566_5934_1_HH.gml"
+path = "LoD2_32_566_5934_1_HH.gml"
+bbox = [566000, 5934000, 567000, 5935000]
+sha256 = "2705b7d813909019a79b45931a67658bcb4abd640b1495f6dccf28ec5120f43d"
+size_bytes = 15085664
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_567_5931_1_HH.gml"
+path = "LoD2_32_567_5931_1_HH.gml"
+bbox = [567000, 5931000, 568000, 5932000]
+sha256 = "d1434ee60ea676824ca54bc581eaa52fbf36c9cf0a823a847f053b27b47828c7"
+size_bytes = 3186009
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_567_5932_1_HH.gml"
+path = "LoD2_32_567_5932_1_HH.gml"
+bbox = [567000, 5932000, 568000, 5933000]
+sha256 = "b14e6264791544bc6dbc972087a2bd95fb0645900705615c45c96eb26a946a7b"
+size_bytes = 2082307
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_567_5933_1_HH.gml"
+path = "LoD2_32_567_5933_1_HH.gml"
+bbox = [567000, 5933000, 568000, 5934000]
+sha256 = "8371076103d6c4b255a1eae0f39f93b553061e5b616eaa7e4384f2814b55438d"
+size_bytes = 10740397
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod2/LoD2-DE_HH_2026-04-28.zip"
+member = "LoD2_32_567_5934_1_HH.gml"
+path = "LoD2_32_567_5934_1_HH.gml"
+bbox = [567000, 5934000, 568000, 5935000]
+sha256 = "a26fbd82588da712dbc30c18f91e0543f3cf08ba35a65c8590b4912216434c90"
+size_bytes = 16145189
+
+[[source]]
+id = "lod3"
+title = "3D-Gebäudemodell LoD3.0-HH Hamburg (texturiert)"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/3d-gebaeudemodell-lod3-0-hh-hamburg17"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung"
+crs = "EPSG:25832"
+vertical_datum = "not declared in the files (presumably NHN; see docs/data-notes.md)"
+used_for = "Detailed building geometry and facade colors (stages buildings, materials)"
+notes = "Metadata id B438AD57-223B-43A4-8E74-767CEC8A96D7. CityGML 2.0, 2020 flight, ALKIS 03/2020. Five area zips; a 1 km tile can span several areas and is merged per tile. Folder <EE><NN>/ = 1 km tile E 5EE km, N 59NN km, holding <EE><NN>.gml and images/*.jpg. No Window/Door/Opening features. Area 1 and 3 zips use Deflate64."
+retrieved = "2026-10-27"
+size_bytes = 35455520546
+
+
+
+[source.tiled]
+kind = "lod3_folder"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+path_prefix = "area1"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area2_2023_12_27.zip"
+path_prefix = "area2"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area3_2024_04_04.zip"
+path_prefix = "area3"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area4_2024_10_10.zip"
+path_prefix = "area4"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area5_2024_02_23.zip"
+path_prefix = "area5"
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6431/"
+path = "area1/6431"
+bbox = [564000, 5931000, 565000, 5932000]
+sha256 = "12882b3f1ded74a2b07df71987d2ea7ad88e0dedffe249ac15de215c54641854"
+size_bytes = 13892188
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6432/"
+path = "area1/6432"
+bbox = [564000, 5932000, 565000, 5933000]
+sha256 = "edabb3ce25068b413723bf60d238bbe98a57e1435673fcbc4382f47cff2bdcb9"
+size_bytes = 18396749
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6433/"
+path = "area1/6433"
+bbox = [564000, 5933000, 565000, 5934000]
+sha256 = "fd184e6f2c330be610a257311918b8d0f589519429d325202c14dd04843d0688"
+size_bytes = 44848681
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6434/"
+path = "area1/6434"
+bbox = [564000, 5934000, 565000, 5935000]
+sha256 = "70497ac452be4cddf153bcdc242d4c18f98db08f547ff78c003922f3fd3f610c"
+size_bytes = 44306494
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6531/"
+path = "area1/6531"
+bbox = [565000, 5931000, 566000, 5932000]
+sha256 = "e4af32ea3e978a96926990cd7d00e1830c0d89e0442c4223083869d48f7c0339"
+size_bytes = 19315626
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6532/"
+path = "area1/6532"
+bbox = [565000, 5932000, 566000, 5933000]
+sha256 = "8c07041fdb5ee084b39fe7697ba9b8c886ca1523ece7f9afc6a022445951b58e"
+size_bytes = 52012496
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6533/"
+path = "area1/6533"
+bbox = [565000, 5933000, 566000, 5934000]
+sha256 = "a150fa4695b10c6f36f8971709815e58b2f6f1e66db6c397948da292aa109ef3"
+size_bytes = 195442273
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6534/"
+path = "area1/6534"
+bbox = [565000, 5934000, 566000, 5935000]
+sha256 = "46f27fa3a4ad6b3da6335f6faa0473e8d3f063de1fcffd125de10796810fb670"
+size_bytes = 207510190
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6631/"
+path = "area1/6631"
+bbox = [566000, 5931000, 567000, 5932000]
+sha256 = "700f4ef2594c1ae6d4bbe81bcf0f5a44918674623913c18139ecc32daa0fd814"
+size_bytes = 25409956
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6632/"
+path = "area1/6632"
+bbox = [566000, 5932000, 567000, 5933000]
+sha256 = "7f3df5a51654de713a6e8fa8b7600aea52c0af0d00a166b4a69a704c15962e50"
+size_bytes = 16460269
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6633/"
+path = "area1/6633"
+bbox = [566000, 5933000, 567000, 5934000]
+sha256 = "c10bcd4453faa610e28034238be12a64e38dda702f2842330c591f9bfc20e045"
+size_bytes = 123248699
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6634/"
+path = "area1/6634"
+bbox = [566000, 5934000, 567000, 5935000]
+sha256 = "f155c07183b2a56a0dcb9566967960abd7eadaf135d0634d62368f1c08f148e5"
+size_bytes = 107177220
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6731/"
+path = "area1/6731"
+bbox = [567000, 5931000, 568000, 5932000]
+sha256 = "56e29efedd61438dc02bde60dfa97b184f53c6e785239627234e9a03a269055c"
+size_bytes = 32015493
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6732/"
+path = "area1/6732"
+bbox = [567000, 5932000, 568000, 5933000]
+sha256 = "c49f3d46055add20af9918fd949b7923249e7a27d8c0c5f5ad86ddab85c83f2f"
+size_bytes = 20039934
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6733/"
+path = "area1/6733"
+bbox = [567000, 5933000, 568000, 5934000]
+sha256 = "978cc9e484d08393463d638171d584a0e66cf0459217309c81d496c7fd203872"
+size_bytes = 132182791
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area1_2023_12_14.zip"
+member_prefix = "6734/"
+path = "area1/6734"
+bbox = [567000, 5934000, 568000, 5935000]
+sha256 = "ac788cc3555c21fede8f6491d6144abb0c3ed0a86fd0e83354a4509c913227ed"
+size_bytes = 25189170
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area3_2024_04_04.zip"
+member_prefix = "6331/"
+path = "area3/6331"
+bbox = [563000, 5931000, 564000, 5932000]
+sha256 = "95f5277359e8070ac566b2eb7b7f925d884031c7edb14bafcfb1f4c6d6dc9484"
+size_bytes = 7464420
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area3_2024_04_04.zip"
+member_prefix = "6332/"
+path = "area3/6332"
+bbox = [563000, 5932000, 564000, 5933000]
+sha256 = "f38fbbd684c2093753e5e850444b9a29048938cc7e85e1c7d6a7c8c19639ca19"
+size_bytes = 28707425
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area3_2024_04_04.zip"
+member_prefix = "6333/"
+path = "area3/6333"
+bbox = [563000, 5933000, 564000, 5934000]
+sha256 = "b7b0a3e407b1c690872060ad1eae3175a4b73cd9c55bc395e82f0d692d8ae0af"
+size_bytes = 445976
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area3_2024_04_04.zip"
+member_prefix = "6431/"
+path = "area3/6431"
+bbox = [564000, 5931000, 565000, 5932000]
+sha256 = "3b13bdb7ab2519e3f39fbb5b3a4016f10ea48866318a1bec3a1677c45278cce5"
+size_bytes = 25204047
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area3_2024_04_04.zip"
+member_prefix = "6432/"
+path = "area3/6432"
+bbox = [564000, 5932000, 565000, 5933000]
+sha256 = "d7d5323f15d1a56bb276ecf6a4d5ccdd4b6711b8ffbaf77f5aff4743aaf29e0c"
+size_bytes = 39948966
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area3_2024_04_04.zip"
+member_prefix = "6433/"
+path = "area3/6433"
+bbox = [564000, 5933000, 565000, 5934000]
+sha256 = "e04aaf6b02dd20193d383a612a9ad23004c4d6fd50a1a534c5f9d0acd0eeef6a"
+size_bytes = 361365
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area3_2024_04_04.zip"
+member_prefix = "6531/"
+path = "area3/6531"
+bbox = [565000, 5931000, 566000, 5932000]
+sha256 = "e2ea4a941737d33ab2ec7727e98318fa5e0ae597562881e7bc9f8f9c44485cad"
+size_bytes = 17177
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area4_2024_10_10.zip"
+member_prefix = "6333/"
+path = "area4/6333"
+bbox = [563000, 5933000, 564000, 5934000]
+sha256 = "e68257b3862a2cfd30e03ecfdc7e40fa95be349bb421c52a7c1c886a4baa3122"
+size_bytes = 105675679
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area4_2024_10_10.zip"
+member_prefix = "6334/"
+path = "area4/6334"
+bbox = [563000, 5934000, 564000, 5935000]
+sha256 = "f8fd07ff4a506642a17d4d4ed6637a72416cb626cd6e1c7baead13c2c193efeb"
+size_bytes = 163046901
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area4_2024_10_10.zip"
+member_prefix = "6433/"
+path = "area4/6433"
+bbox = [564000, 5933000, 565000, 5934000]
+sha256 = "0158d0a6d5acd79f7ee982323c4add8e8db4628ed38da154fb346becc49a76b4"
+size_bytes = 61380966
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area4_2024_10_10.zip"
+member_prefix = "6434/"
+path = "area4/6434"
+bbox = [564000, 5934000, 565000, 5935000]
+sha256 = "2b4627be87f4fcb2b9ae6e47924cbe5784e0e13ae2329aadcb87d0ea82ab8f53"
+size_bytes = 63868834
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area4_2024_10_10.zip"
+member_prefix = "6534/"
+path = "area4/6534"
+bbox = [565000, 5934000, 566000, 5935000]
+sha256 = "6416168baa14a838b2a1722205a372ebe3da30d735943e1cb5ae16a83d5e4908"
+size_bytes = 14250190
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area4_2024_10_10.zip"
+member_prefix = "6634/"
+path = "area4/6634"
+bbox = [566000, 5934000, 567000, 5935000]
+sha256 = "431723d8dd65a8f640b3728fb30cde610d9ae0d3cef58bbe90377e0b846c1841"
+size_bytes = 77641153
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_stadtmodell_lod3/LoD3-HH_Area4_2024_10_10.zip"
+member_prefix = "6734/"
+path = "area4/6734"
+bbox = [567000, 5934000, 568000, 5935000]
+sha256 = "f690b8cd1eb01b352d770985e90fd3c5050dd372e721f219d97347da2c05db78"
+size_bytes = 121437416
+
+[[source]]
+id = "trees"
+title = "Straßenbaumkataster Hamburg"
+publisher = "Freie und Hansestadt Hamburg, Behörde für Umwelt, Klima, Energie und Agrarwirtschaft"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/strassenbaumkataster-hamburg34"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Behörde für Umwelt, Klima, Energie und Agrarwirtschaft"
+crs = "EPSG:25832"
+volatile = true
+used_for = "Street tree positions, genus/species, crown diameter, trunk girth, planting year (stage vegetation)"
+notes = "Metadata id C1C61928-C602-4E37-AF31-2D23901E2540. WFS GetFeature as GeoJSON sorted by baumid. No tree height; join Hoehe_aus_ALS from trees3d."
+retrieved = "2026-10-27"
+size_bytes = 269082377
+
+
+
+[source.tiled]
+kind = "wfs_blocks"
+block_m = 4000.0
+url_template = "https://geodienste.hamburg.de/HH_WFS_Strassenbaumkataster?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=de.hh.up:strassenbaumkataster&SRSNAME=EPSG:25832&BBOX={minx},{miny},{maxx},{maxy},urn:ogc:def:crs:EPSG::25832&OUTPUTFORMAT=application/geo%2Bjson&SORTBY=baumid"
+
+[[source.files]]
+url = "https://geodienste.hamburg.de/HH_WFS_Strassenbaumkataster?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=de.hh.up:strassenbaumkataster&SRSNAME=EPSG:25832&BBOX=563680,5931488,567328,5934112,urn:ogc:def:crs:EPSG::25832&OUTPUTFORMAT=application/geo%2Bjson&SORTBY=baumid"
+path = "pilot.geojson"
+bbox = [563680, 5931488, 567328, 5934112]
+sha256 = "a8c1a1e1a18e5db1359b6d07b45835fbfa248f4b1d8bc7dbf7b2a3d0cc4cae6a"
+size_bytes = 4378162
+
+[[source]]
+id = "trees_hpa"
+title = "Straßenbaumkataster Hamburger Hafen"
+publisher = "Freie und Hansestadt Hamburg, Hamburg Port Authority"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/strassenbaumkataster-hamburger-hafen27"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Hamburg Port Authority"
+crs = "EPSG:25832"
+volatile = true
+used_for = "Street trees in the port area (stage vegetation)"
+notes = "Metadata id 19676799-FEDB-4D1A-A89A-26FBA887B3F0. WFS type de.hh.up:strbaeume_hpa; crown and trunk diameter (not girth); does not overlap the BUKEA cadaster."
+retrieved = "2026-10-27"
+size_bytes = 10532637
+
+
+
+[source.tiled]
+kind = "wfs_blocks"
+block_m = 4000.0
+url_template = "https://geodienste.hamburg.de/wfs_strassenbaumkataster_hafen?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=de.hh.up:strbaeume_hpa&SRSNAME=EPSG:25832&BBOX={minx},{miny},{maxx},{maxy},urn:ogc:def:crs:EPSG::25832&OUTPUTFORMAT=application/geo%2Bjson&SORTBY=baumnummer"
+
+[[source.files]]
+url = "https://geodienste.hamburg.de/wfs_strassenbaumkataster_hafen?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=de.hh.up:strbaeume_hpa&SRSNAME=EPSG:25832&BBOX=563680,5931488,567328,5934112,urn:ogc:def:crs:EPSG::25832&OUTPUTFORMAT=application/geo%2Bjson&SORTBY=baumnummer"
+path = "pilot.geojson"
+bbox = [563680, 5931488, 567328, 5934112]
+sha256 = "8de762b5370e122d875314841ef058a9e63790d98378770e5db16421b1c4ab33"
+size_bytes = 237520
+
+[[source]]
+id = "trees3d"
+title = "3D Straßenbaumkataster Hamburg (Sommerbäume)"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung"
+landing_url = "https://metaver.de/trefferanzeige?docuuid=24513F73-D928-450C-A334-E30037945729"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung"
+crs = "EPSG:25832"
+vertical_datum = "DHHN92 (NH)"
+used_for = "Tree heights (Hoehe_aus_ALS) joined to the cadaster by tree number (stage vegetation)"
+notes = "CityGML 2.0, city-wide; trees as of 09/2021, heights from ALS 04/2022. Only the GML is extracted, not the PNG textures."
+retrieved = "2026-10-26"
+size_bytes = 486634710
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/3d_objekte/Strassenbaumkataster_Sommer_Hamburg_2024_03_15.zip"
+member = "Strassenbaumkataster_20210901_Sommerbaeume.gml"
+path = "Strassenbaumkataster_20210901_Sommerbaeume.gml"
+sha256 = "fd925c5b30c928fcd6278f0de01ffb838439031663d00d38d032c7a68d941cad"
+size_bytes = 486634710
+
+[[source]]
+id = "alkis_nutzung"
+title = "ALKIS - Liegenschaften und Verwaltungseinheiten (ALKIS vereinfacht), Nutzung"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+landing_url = "https://metaver.de/trefferanzeige?docuuid=18E405F7-4566-42DF-BFD7-EC777C97923B"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+crs = "EPSG:25832"
+volatile = true
+used_for = "Actual land use polygons: surface classes and water polygons (stage ground)"
+notes = "WFS https://geodienste.hamburg.de/WFS_HH_ALKIS_vereinfacht, type ave:Nutzung (fields oid, aktualit, nutzart, bez, name) as GeoJSON sorted by oid. Text values, e.g. nutzart 'Fliessgewaesser', bez 'Kanal'."
+retrieved = "2026-10-27"
+size_bytes = 610739818
+
+
+
+[source.tiled]
+kind = "wfs_blocks"
+block_m = 4000.0
+url_template = "https://geodienste.hamburg.de/WFS_HH_ALKIS_vereinfacht?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ave:Nutzung&SRSNAME=EPSG:25832&BBOX={minx},{miny},{maxx},{maxy},urn:ogc:def:crs:EPSG::25832&OUTPUTFORMAT=application/geo%2Bjson&SORTBY=oid"
+
+[[source.files]]
+url = "https://geodienste.hamburg.de/WFS_HH_ALKIS_vereinfacht?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ave:Nutzung&SRSNAME=EPSG:25832&BBOX=563680,5931488,567328,5934112,urn:ogc:def:crs:EPSG::25832&OUTPUTFORMAT=application/geo%2Bjson&SORTBY=oid"
+path = "nutzung_pilot.geojson"
+bbox = [563680, 5931488, 567328, 5934112]
+sha256 = "4f1a9a33ff358cb7ea450d83b883c0a8f450cf9c49058a56fafae3664ee28e35"
+size_bytes = 13948808
+
+[[source]]
+id = "alkis_nas"
+title = "ALKIS - ausgewählte Daten Hamburg (NAS, 2026-10-15)"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/alkis-ausgewaehlte-daten-hamburg5"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+crs = "EPSG:25832"
+used_for = "Bauwerke: bridges, quay walls, elevated railways, piers (stage infra); full land-use attributes"
+notes = "Metadata id DC71F8A1-7A8C-488C-AC99-23776FA7775E. NAS (AAA-AS 7.1) in parts HmbTG_ALKIS_261015_<n>von289.xml; spatial parts cover 2 km x 2 km with SW corners at odd E km / even N km (from suedwestEcke). Part numbers change between releases. Codes resolve via https://registry.gdi-de.org/codelist/de.adv-online.gid/<Codelist>/<code>."
+retrieved = "2026-10-27"
+size_bytes = 10836682066
+
+
+
+[source.tiled]
+kind = "all"
+suffix = ".xml"
+
+[[source.tiled.archives]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_143von289.xml"
+path = "HmbTG_ALKIS_261015_143von289.xml"
+bbox = [563000, 5930000, 565000, 5932000]
+sha256 = "77c66dfe0a971df505eaeae7463bc84c562350ef5ec5dface63a8359e29079cd"
+size_bytes = 22080793
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_144von289.xml"
+path = "HmbTG_ALKIS_261015_144von289.xml"
+bbox = [565000, 5930000, 567000, 5932000]
+sha256 = "932f86a239f59ab09cac280be69c409cdda2b6ad525d0108d22d34f394b617f4"
+size_bytes = 35425988
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_145von289.xml"
+path = "HmbTG_ALKIS_261015_145von289.xml"
+bbox = [567000, 5930000, 569000, 5932000]
+sha256 = "2f091bacdfe937018ff8b302abb3143444dc4bb91266423fe8c68363162ddc84"
+size_bytes = 38733021
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_159von289.xml"
+path = "HmbTG_ALKIS_261015_159von289.xml"
+bbox = [563000, 5932000, 565000, 5934000]
+sha256 = "b05437f23601fd83c68e042052335c8361bc422d89b8f5a41a1d6a4cd3412cb5"
+size_bytes = 57550738
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_160von289.xml"
+path = "HmbTG_ALKIS_261015_160von289.xml"
+bbox = [565000, 5932000, 567000, 5934000]
+sha256 = "146fba432b3d84e54c7e67b4be7077ace1c5fb30a940e9125c299553eab81c73"
+size_bytes = 66731341
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_161von289.xml"
+path = "HmbTG_ALKIS_261015_161von289.xml"
+bbox = [567000, 5932000, 569000, 5934000]
+sha256 = "152cacf11c6a8f1439288555835727d7965ec1e87030e66134e7a136a0c08eba"
+size_bytes = 48129884
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_175von289.xml"
+path = "HmbTG_ALKIS_261015_175von289.xml"
+bbox = [563000, 5934000, 565000, 5936000]
+sha256 = "1458694cb247a88089981b3300aa4db5ee816efe6869a19f6f7b09ae29f477f1"
+size_bytes = 109157001
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_176von289.xml"
+path = "HmbTG_ALKIS_261015_176von289.xml"
+bbox = [565000, 5934000, 567000, 5936000]
+sha256 = "cd2abaec81f9b87fdeba23e536e8171dfaa6bbb303e9dd195f843e187d898e9e"
+size_bytes = 81827033
+
+
+[[source.files]]
+url = "https://www.daten-hamburg.de/opendata/ALKIS_Liegenschaftskarte/ALKIS_Liegenschaftskarte_ausgewaehlteDaten_HH_2026-10-15.zip"
+member = "HmbTG_ALKIS_261015_177von289.xml"
+path = "HmbTG_ALKIS_261015_177von289.xml"
+bbox = [567000, 5934000, 569000, 5936000]
+sha256 = "66ce7edd78a7d71caae5a6915eb34728472c6bffd2d028d56fd11d54774eadb5"
+size_bytes = 94097401
+
+[[source]]
+id = "boundary"
+title = "ALKIS - Verwaltungsgrenzen Hamburg, Landesgrenze"
+publisher = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+landing_url = "https://suche.transparenz.hamburg.de/dataset/alkis-verwaltungsgrenzen-hamburg31"
+license = "dl-de/by-2-0"
+license_url = "https://www.govdata.de/dl-de/by-2-0"
+attribution = "Freie und Hansestadt Hamburg, Landesbetrieb Geoinformation und Vermessung (LGV)"
+crs = "EPSG:25832"
+volatile = true
+used_for = "Hamburg city boundary for the full area"
+notes = "Metadata id F35EAC11-C236-429F-B1BF-751C0C18E8B7. WFS type app:landesgrenze: one MultiPolygon with 4 parts (incl. Neuwerk/Scharhörn)."
+retrieved = "2026-10-26"
+size_bytes = 836700
+
+
+[[source.files]]
+url = "https://geodienste.hamburg.de/HH_WFS_Verwaltungsgrenzen?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=app:landesgrenze&SRSNAME=EPSG:25832&OUTPUTFORMAT=application/geo%2Bjson"
+path = "landesgrenze.geojson"
+sha256 = "3fdeb9e4e44d34b8bff9be2d7f47400ccef5fa78e7f66778fbbdbf266e8e9c14"
+size_bytes = 836700
+
+[[source]]
+id = "osm"
+title = "OpenStreetMap, Geofabrik extract Hamburg (2026-01-01)"
+publisher = "OpenStreetMap contributors (extract by Geofabrik GmbH)"
+landing_url = "https://download.geofabrik.de/europe/germany/hamburg.html"
+license = "ODbL-1.0"
+license_url = "https://opendatacommons.org/licenses/odbl/1-0/"
+attribution = "© OpenStreetMap contributors, https://www.openstreetmap.org/copyright"
+crs = "EPSG:4326"
+used_for = "Water barriers: locks, weirs, sluice gates and dams (prep water)"
+notes = "Uses the yearly 1 January extract because Geofabrik keeps those permanently, while daily extracts are deleted after some days. Bump the date deliberately. Share-alike: OSM is only used for water barrier positions (locks, weirs, sluices, dams); the world is a Produced Work under the ODbL."
+retrieved = "2026-10-26"
+size_bytes = 52307691
+
+
+[[source.files]]
+url = "https://download.geofabrik.de/europe/germany/hamburg-260101.osm.pbf"
+path = "hamburg-260101.osm.pbf"
+sha256 = "995b4f65cfb0f0431f012d8185d0502364beabd956e591ccd8a5b6522c1c576d"
+size_bytes = 52307691
+
+[[source]]
+id = "pegelonline"
+title = "PEGELONLINE gauge Hamburg St. Pauli (5952050)"
+publisher = "Wasserstraßen- und Schifffahrtsverwaltung des Bundes (WSV)"
+landing_url = "https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/d488c5cc-4de9-4631-8ce1-0db0e700b546.json?includeTimeseries=true&includeCharacteristicValues=true"
+license = "dl-de/zero-2-0"
+license_url = "https://www.govdata.de/dl-de/zero-2-0"
+attribution = "Wasserstraßen- und Schifffahrtsverwaltung des Bundes (WSV), PEGELONLINE"
+crs = "EPSG:4326"
+vertical_datum = "DHHN2016 (NHN); gauge zero -5.004 m NHN since 2019-11-01"
+used_for = "Gauge metadata for the Elbe water level in config/water.toml (stage ground)"
+notes = "No files: the values used are copied into config/water.toml with their sources."
+

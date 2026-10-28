@@ -1,0 +1,357 @@
+# Facade palette. Building surfaces with textures or material colors are
+# matched in CIELAB (CIEDE2000) against these blocks; their colors come from
+# config/block_colors.toml (derived from the client jar). Only blocks whose texture is the
+# same on all sides are listed, so the averaged texture also describes the facade. Copper
+# is always waxed, because unwaxed copper oxidizes in the game.
+
+# Full blocks for walls.
+walls = [
+  "minecraft:bricks",
+  "minecraft:mud_bricks",
+  "minecraft:stone_bricks",
+  "minecraft:deepslate_bricks",
+  "minecraft:deepslate_tiles",
+  "minecraft:polished_deepslate",
+  "minecraft:tuff_bricks",
+  "minecraft:polished_tuff",
+  "minecraft:tuff",
+  "minecraft:andesite",
+  "minecraft:polished_andesite",
+  "minecraft:diorite",
+  "minecraft:polished_diorite",
+  "minecraft:granite",
+  "minecraft:polished_granite",
+  "minecraft:calcite",
+  "minecraft:stone",
+  "minecraft:quartz_bricks",
+  "minecraft:packed_mud",
+  "minecraft:nether_bricks",
+  "minecraft:red_nether_bricks",
+  "minecraft:polished_blackstone_bricks",
+  "minecraft:end_stone_bricks",
+  "minecraft:resin_bricks",
+  "minecraft:smooth_sandstone",
+  "minecraft:smooth_red_sandstone",
+  "minecraft:prismarine_bricks",
+  "minecraft:dark_prismarine",
+  "minecraft:oak_planks",
+  "minecraft:spruce_planks",
+  "minecraft:birch_planks",
+  "minecraft:dark_oak_planks",
+  "minecraft:waxed_copper_block",
+  "minecraft:waxed_exposed_copper",
+  "minecraft:waxed_weathered_copper",
+  "minecraft:waxed_oxidized_copper",
+  "minecraft:terracotta",
+  "minecraft:white_terracotta",
+  "minecraft:light_gray_terracotta",
+  "minecraft:gray_terracotta",
+  "minecraft:black_terracotta",
+  "minecraft:brown_terracotta",
+  "minecraft:red_terracotta",
+  "minecraft:orange_terracotta",
+  "minecraft:yellow_terracotta",
+  "minecraft:lime_terracotta",
+  "minecraft:green_terracotta",
+  "minecraft:cyan_terracotta",
+  "minecraft:light_blue_terracotta",
+  "minecraft:blue_terracotta",
+  "minecraft:purple_terracotta",
+  "minecraft:magenta_terracotta",
+  "minecraft:pink_terracotta",
+  "minecraft:white_concrete",
+  "minecraft:light_gray_concrete",
+  "minecraft:gray_concrete",
+  "minecraft:black_concrete",
+  "minecraft:brown_concrete",
+  "minecraft:red_concrete",
+  "minecraft:orange_concrete",
+  "minecraft:yellow_concrete",
+  "minecraft:lime_concrete",
+  "minecraft:green_concrete",
+  "minecraft:cyan_concrete",
+  "minecraft:light_blue_concrete",
+  "minecraft:blue_concrete",
+  "minecraft:purple_concrete",
+  "minecraft:magenta_concrete",
+  "minecraft:pink_concrete",
+]
+
+# Roof block families (full block, stairs, slab), matched by the roof color.
+[[roof]]
+full = "minecraft:white_concrete"
+stairs = "minecraft:white_concrete_stairs"
+slab = "minecraft:white_concrete_slab"
+
+[[roof]]
+full = "minecraft:light_gray_concrete"
+stairs = "minecraft:light_gray_concrete_stairs"
+slab = "minecraft:light_gray_concrete_slab"
+
+[[roof]]
+full = "minecraft:gray_concrete"
+stairs = "minecraft:gray_concrete_stairs"
+slab = "minecraft:gray_concrete_slab"
+
+[[roof]]
+full = "minecraft:black_concrete"
+stairs = "minecraft:black_concrete_stairs"
+slab = "minecraft:black_concrete_slab"
+
+[[roof]]
+full = "minecraft:brown_concrete"
+stairs = "minecraft:brown_concrete_stairs"
+slab = "minecraft:brown_concrete_slab"
+
+[[roof]]
+full = "minecraft:red_concrete"
+stairs = "minecraft:red_concrete_stairs"
+slab = "minecraft:red_concrete_slab"
+
+[[roof]]
+full = "minecraft:orange_concrete"
+stairs = "minecraft:orange_concrete_stairs"
+slab = "minecraft:orange_concrete_slab"
+
+[[roof]]
+full = "minecraft:yellow_concrete"
+stairs = "minecraft:yellow_concrete_stairs"
+slab = "minecraft:yellow_concrete_slab"
+
+[[roof]]
+full = "minecraft:lime_concrete"
+stairs = "minecraft:lime_concrete_stairs"
+slab = "minecraft:lime_concrete_slab"
+
+[[roof]]
+full = "minecraft:green_concrete"
+stairs = "minecraft:green_concrete_stairs"
+slab = "minecraft:green_concrete_slab"
+
+[[roof]]
+full = "minecraft:cyan_concrete"
+stairs = "minecraft:cyan_concrete_stairs"
+slab = "minecraft:cyan_concrete_slab"
+
+[[roof]]
+full = "minecraft:light_blue_concrete"
+stairs = "minecraft:light_blue_concrete_stairs"
+slab = "minecraft:light_blue_concrete_slab"
+
+[[roof]]
+full = "minecraft:blue_concrete"
+stairs = "minecraft:blue_concrete_stairs"
+slab = "minecraft:blue_concrete_slab"
+
+[[roof]]
+full = "minecraft:purple_concrete"
+stairs = "minecraft:purple_concrete_stairs"
+slab = "minecraft:purple_concrete_slab"
+
+[[roof]]
+full = "minecraft:magenta_concrete"
+stairs = "minecraft:magenta_concrete_stairs"
+slab = "minecraft:magenta_concrete_slab"
+
+[[roof]]
+full = "minecraft:pink_concrete"
+stairs = "minecraft:pink_concrete_stairs"
+slab = "minecraft:pink_concrete_slab"
+
+[[roof]]
+full = "minecraft:bricks"
+stairs = "minecraft:brick_stairs"
+slab = "minecraft:brick_slab"
+
+[[roof]]
+full = "minecraft:stone_bricks"
+stairs = "minecraft:stone_brick_stairs"
+slab = "minecraft:stone_brick_slab"
+
+[[roof]]
+full = "minecraft:deepslate_tiles"
+stairs = "minecraft:deepslate_tile_stairs"
+slab = "minecraft:deepslate_tile_slab"
+
+[[roof]]
+full = "minecraft:deepslate_bricks"
+stairs = "minecraft:deepslate_brick_stairs"
+slab = "minecraft:deepslate_brick_slab"
+
+[[roof]]
+full = "minecraft:mud_bricks"
+stairs = "minecraft:mud_brick_stairs"
+slab = "minecraft:mud_brick_slab"
+
+[[roof]]
+full = "minecraft:andesite"
+stairs = "minecraft:andesite_stairs"
+slab = "minecraft:andesite_slab"
+
+[[roof]]
+full = "minecraft:polished_andesite"
+stairs = "minecraft:polished_andesite_stairs"
+slab = "minecraft:polished_andesite_slab"
+
+[[roof]]
+full = "minecraft:granite"
+stairs = "minecraft:granite_stairs"
+slab = "minecraft:granite_slab"
+
+[[roof]]
+full = "minecraft:polished_granite"
+stairs = "minecraft:polished_granite_stairs"
+slab = "minecraft:polished_granite_slab"
+
+[[roof]]
+full = "minecraft:polished_diorite"
+stairs = "minecraft:polished_diorite_stairs"
+slab = "minecraft:polished_diorite_slab"
+
+[[roof]]
+full = "minecraft:tuff_bricks"
+stairs = "minecraft:tuff_brick_stairs"
+slab = "minecraft:tuff_brick_slab"
+
+[[roof]]
+full = "minecraft:polished_tuff"
+stairs = "minecraft:polished_tuff_stairs"
+slab = "minecraft:polished_tuff_slab"
+
+[[roof]]
+full = "minecraft:nether_bricks"
+stairs = "minecraft:nether_brick_stairs"
+slab = "minecraft:nether_brick_slab"
+
+[[roof]]
+full = "minecraft:red_nether_bricks"
+stairs = "minecraft:red_nether_brick_stairs"
+slab = "minecraft:red_nether_brick_slab"
+
+[[roof]]
+full = "minecraft:waxed_cut_copper"
+stairs = "minecraft:waxed_cut_copper_stairs"
+slab = "minecraft:waxed_cut_copper_slab"
+
+[[roof]]
+full = "minecraft:waxed_exposed_cut_copper"
+stairs = "minecraft:waxed_exposed_cut_copper_stairs"
+slab = "minecraft:waxed_exposed_cut_copper_slab"
+
+[[roof]]
+full = "minecraft:waxed_weathered_cut_copper"
+stairs = "minecraft:waxed_weathered_cut_copper_stairs"
+slab = "minecraft:waxed_weathered_cut_copper_slab"
+
+[[roof]]
+full = "minecraft:waxed_oxidized_cut_copper"
+stairs = "minecraft:waxed_oxidized_cut_copper_stairs"
+slab = "minecraft:waxed_oxidized_cut_copper_slab"
+
+[[roof]]
+full = "minecraft:polished_blackstone"
+stairs = "minecraft:polished_blackstone_stairs"
+slab = "minecraft:polished_blackstone_slab"
+
+[[roof]]
+full = "minecraft:quartz_block"
+stairs = "minecraft:quartz_stairs"
+slab = "minecraft:quartz_slab"
+
+[[roof]]
+full = "minecraft:smooth_quartz"
+stairs = "minecraft:smooth_quartz_stairs"
+slab = "minecraft:smooth_quartz_slab"
+
+[[roof]]
+full = "minecraft:stone"
+stairs = "minecraft:stone_stairs"
+slab = "minecraft:stone_slab"
+
+[[roof]]
+full = "minecraft:spruce_planks"
+stairs = "minecraft:spruce_stairs"
+slab = "minecraft:spruce_slab"
+
+[[roof]]
+full = "minecraft:dark_oak_planks"
+stairs = "minecraft:dark_oak_stairs"
+slab = "minecraft:dark_oak_slab"
+
+[[roof]]
+full = "minecraft:prismarine_bricks"
+stairs = "minecraft:prismarine_brick_stairs"
+slab = "minecraft:prismarine_brick_slab"
+
+[[roof]]
+full = "minecraft:dark_prismarine"
+stairs = "minecraft:dark_prismarine_stairs"
+slab = "minecraft:dark_prismarine_slab"
+
+[[roof]]
+full = "minecraft:smooth_sandstone"
+stairs = "minecraft:smooth_sandstone_stairs"
+slab = "minecraft:smooth_sandstone_slab"
+
+[[roof]]
+full = "minecraft:smooth_red_sandstone"
+stairs = "minecraft:smooth_red_sandstone_stairs"
+slab = "minecraft:smooth_red_sandstone_slab"
+
+[[roof]]
+full = "minecraft:resin_bricks"
+stairs = "minecraft:resin_brick_stairs"
+slab = "minecraft:resin_brick_slab"
+
+[illumination]
+# The textures are oblique aerial photographs: faces turned away from the sun, and most of
+# the narrow Speicherstadt canyons, are dark and bluish (L* 15–30, b* ≈ −18), which hides
+# the brick. Per building the reference color is the median of its brightest wall samples
+# (L* at or above the `reference_percentile`), i.e. the material in sunlight. A face whose
+# median L* is below the reference is shifted toward it, fully in L* and, in a* and b*, by
+# (ΔL* / chroma_full_at) capped at 1. Differences within a face (windows) are kept. Glass
+# detection uses the uncorrected colors.
+enabled = true
+reference_percentile = 0.65
+# A building whose sunlit reference itself is darker than this has no usable color
+# evidence (its whole texture is in shadow); its walls use the fallback wall material of
+# config/blocks.toml [buildings], like untextured buildings. Windows and roofs still come
+# from the texture.
+min_reference_l = 40.0
+# Fraction of the L* difference applied: lifting shadowed faces all the way to the sunlit
+# reference makes them look washed out.
+lightness_gain = 0.7
+chroma_full_at = 30.0
+# Haze in the aerial photos desaturates materials; corrected colors get this chroma gain.
+chroma_gain = 1.3
+# A voxel takes its face's dominant color (the face median, corrected) unless its own
+# color differs from it by more than this CIEDE2000 distance; this keeps facades from
+# speckling between palette blocks while real color changes (bands, bases) remain.
+face_snap_de = 12.0
+
+[windows]
+# Never applied to a building's bottom row of voxels (its ground slab), whose side samples
+# often show the street at the facade foot.
+# A facade voxel becomes a window when it is darker (CIELAB L*) than the median of its
+# source face by `delta_l`, and the same column of that face has such voxels on at least
+# `min_stories` stories (windows repeat per floor; a single dark patch is a shadow or dirt).
+delta_l = 18.0
+min_stories = 2
+block = "minecraft:light_gray_stained_glass"
+
+[curtain_wall]
+# Glazed buildings (curtain walls, e.g. the Elbphilharmonie). A wall sample is "dark
+# glass-like" when L* ≤ max_l, |a*| ≤ max_abs_a and b* ≤ max_b. Shadow darkens only the
+# sides facing away from the sun, while a glass building is dark all around: a building
+# counts as glazed when at least `min_sides` of its four facing directions have at least
+# `min_side_fraction` dark glass-like samples. In glazed buildings every dark glass-like
+# voxel becomes `block`; elsewhere dark samples go to the palette or window detection.
+max_l = 38.0
+max_abs_a = 4.0
+max_b = 0.0
+# Glass reflecting the sky stays near neutral (Elbphilharmonie C* ≈ 2–13); deep shadow in
+# narrow streets and canals casts strongly blue skylight on brick (Wasserschloss C* ≈ 18).
+max_chroma = 14.0
+min_sides = 3
+min_side_fraction = 0.35
+block = "minecraft:gray_stained_glass"

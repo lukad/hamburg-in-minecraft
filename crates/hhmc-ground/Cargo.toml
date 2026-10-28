@@ -1,0 +1,16 @@
+[package]
+name = "hhmc-ground"
+description = "Ground stage: terrain height, river beds, surface classes and water per tile"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+hhmc-core.workspace = true
+tracing.workspace = true
+
+[lints]
+workspace = true

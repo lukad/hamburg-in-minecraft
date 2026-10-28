@@ -1,0 +1,195 @@
+# Ground surface classes and the ALKIS land-use rules that select them.
+#
+# A class's index in the [[class]] list is its id in the prepared land-use rasters, so
+# appending is safe but reordering invalidates the cache (it is part of the cache key).
+# Column layout: `top` at ground height, `subsoil_depth` blocks of
+# `subsoil`, stone down to y = −63, bedrock at y = −64. Water classes put `top`/`subsoil`
+# on the bed and fill water up to the water body's level from config/water.toml.
+
+subsoil_depth = 3
+deep = "minecraft:stone"
+floor = "minecraft:bedrock"
+fallback = "built"
+
+# Class 0 is used where no ALKIS polygon covers a cell.
+[[class]]
+id = "default"
+top = "minecraft:grass_block"
+subsoil = "minecraft:dirt"
+biome = "minecraft:plains"
+
+[[class]]
+id = "built"
+top = "minecraft:andesite"
+subsoil = "minecraft:stone"
+biome = "minecraft:plains"
+
+[[class]]
+id = "road"
+top = "minecraft:gray_concrete"
+subsoil = "minecraft:stone"
+biome = "minecraft:plains"
+
+[[class]]
+id = "sidewalk"
+top = "minecraft:smooth_stone"
+subsoil = "minecraft:stone"
+biome = "minecraft:plains"
+
+[[class]]
+id = "plaza"
+top = "minecraft:polished_andesite"
+subsoil = "minecraft:stone"
+biome = "minecraft:plains"
+
+[[class]]
+id = "grass"
+top = "minecraft:grass_block"
+subsoil = "minecraft:dirt"
+biome = "minecraft:plains"
+
+[[class]]
+id = "rail"
+top = "minecraft:gravel"
+subsoil = "minecraft:gravel"
+biome = "minecraft:plains"
+
+[[class]]
+id = "sand"
+top = "minecraft:sand"
+subsoil = "minecraft:sand"
+biome = "minecraft:plains"
+
+[[class]]
+id = "water"
+top = "minecraft:gravel"
+subsoil = "minecraft:sand"
+biome = "minecraft:river"
+water = true
+
+# Rules on ALKIS vereinfacht `ave:Nutzung` (fields `nutzart`, `bez`); first match wins.
+# A rule without `bez` matches any value. Values are the publisher's text (see
+# docs/data-notes.md); unmatched polygons get the class named by `fallback` (top).
+
+[[rule]]
+nutzart = "Fliessgewaesser"
+class = "water"
+[[rule]]
+nutzart = "Hafenbecken"
+class = "water"
+[[rule]]
+nutzart = "Stehendes Gewaesser"
+class = "water"
+[[rule]]
+nutzart = "Meer"
+class = "water"
+
+[[rule]]
+nutzart = "Strassenverkehr"
+bez = "Begleitfläche Straßenverkehr"
+class = "sidewalk"
+[[rule]]
+nutzart = "Strassenverkehr"
+class = "road"
+[[rule]]
+nutzart = "Weg"
+class = "sidewalk"
+[[rule]]
+nutzart = "Platz"
+bez = "Parkplatz"
+class = "road"
+[[rule]]
+nutzart = "Platz"
+class = "plaza"
+[[rule]]
+nutzart = "Bahnverkehr"
+class = "rail"
+
+[[rule]]
+nutzart = "Sport Freizeit Und Erholungsflaeche"
+class = "grass"
+[[rule]]
+nutzart = "Landwirtschaft"
+class = "grass"
+[[rule]]
+nutzart = "Wald"
+class = "grass"
+[[rule]]
+nutzart = "Gehoelz"
+class = "grass"
+[[rule]]
+nutzart = "Heide"
+class = "grass"
+[[rule]]
+nutzart = "Moor"
+class = "grass"
+[[rule]]
+nutzart = "Sumpf"
+class = "grass"
+[[rule]]
+nutzart = "Friedhof"
+class = "grass"
+[[rule]]
+nutzart = "Unland Vegetationslose Flaeche"
+bez = "Gewässerbegleitfläche"
+class = "sand"
+[[rule]]
+nutzart = "Unland Vegetationslose Flaeche"
+class = "grass"
+[[rule]]
+nutzart = "Flaeche Besonderer Funktionaler Praegung"
+bez = "Historische Anlage"
+class = "grass"
+# Housing, mixed use and public grounds (schools, hospitals): `residential`, which looks
+# like `built` but is where the vegetation stage finds garden trees in the canopy model.
+# Industrial and port land stays `built` (container stacks and tanks are not trees).
+[[rule]]
+nutzart = "Wohnbauflaeche"
+class = "residential"
+[[rule]]
+nutzart = "Flaeche Gemischter Nutzung"
+class = "residential"
+[[rule]]
+nutzart = "Flaeche Besonderer Funktionaler Praegung"
+class = "residential"
+
+# Not selected by rules: the ground stage puts it where two water bodies with different
+# levels meet (at locks), as a one-block gate holding back the higher water.
+[[class]]
+id = "lock_gate"
+top = "minecraft:stone_bricks"
+subsoil = "minecraft:stone_bricks"
+biome = "minecraft:river"
+
+# Housing and mixed-use plots with their gardens (appended, so the ids above stay).
+[[class]]
+id = "residential"
+top = "minecraft:andesite"
+subsoil = "minecraft:stone"
+biome = "minecraft:plains"
+
+# Building materials: `wall` where a facade has no usable color sample, `floor` for floors.
+[buildings]
+wall = "minecraft:bricks"
+floor = "minecraft:oak_planks"
+# Roof faces flatter than `flat_max_deg` use the flat roof blocks; faces between
+# `stairs_min_deg` and `stairs_max_deg` become stairs; the rest use the roof block.
+flat_roof = "minecraft:smooth_stone"
+flat_roof_slab = "minecraft:smooth_stone_slab"
+roof = "minecraft:deepslate_tiles"
+roof_slab = "minecraft:deepslate_tile_slab"
+roof_stairs = "minecraft:deepslate_tile_stairs"
+flat_max_deg = 10.0
+stairs_min_deg = 30.0
+stairs_max_deg = 60.0
+# Interior floors every this many blocks above the building's base.
+story_blocks = 3
+# A building's underside within this many blocks above the ground is extended down to
+# the ground (foundation); higher undersides (arcades, overhangs) are kept.
+foundation_max_blocks = 3
+# Canopies (bldg:function of ALKIS AX_SonstigesBauwerkOderSonstigeEinrichtung 51009 with
+# Bauwerksfunktion 1610 "Überdachung"): LoD2 extrudes them to solid boxes, but they are a
+# roof on posts. Only their roof is kept, with posts at the footprint's corners and every
+# `canopy_post_spacing` blocks along its edges.
+canopy_functions = ["51009_1610"]
+canopy_post_spacing = 6

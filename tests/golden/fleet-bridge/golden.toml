@@ -1,0 +1,3 @@
+description = "A road bridge over a Fleet: deck, lanes carried across, abutments over the dipped bank, railings."
+tile = [0, 0]
+window = [8, 440, 72, 504]

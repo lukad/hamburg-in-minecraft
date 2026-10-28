@@ -1,0 +1,20 @@
+[package]
+name = "hhmc-world"
+description = "VoxelTile to Anvil region files and world assembly for the pinned Minecraft version"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+fastnbt.workspace = true
+flate2.workspace = true
+hhmc-core.workspace = true
+rayon.workspace = true
+serde.workspace = true
+tracing.workspace = true
+
+[lints]
+workspace = true

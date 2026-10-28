@@ -1,0 +1,17 @@
+# Landmark overrides: schematics built by hand, placed over the generated
+# world. Each `[[landmark]]`:
+#
+#   name      = "Elbphilharmonie"
+#   schematic = "landmarks/elbphilharmonie.schem"   # Sponge v3 .schem or vanilla .nbt,
+#                                                   # relative to the repository root
+#   anchor    = [565215.0, 5932960.0, 4.0]          # EPSG:25832 E, N and m NHN
+#   origin    = [0, 0, 0]                           # schematic block placed at the anchor
+#   rotation  = 90                                  # clockwise quarter turns: 0/90/180/270
+#   footprint = [[E, N], [E, N], [E, N], …]         # ring, EPSG:25832
+#
+# Inside the footprint, the generated blocks are cleared above the terrain and its water
+# (in every tile it touches); then the schematic's blocks are placed, rotated with their
+# block states (facing, axis, rotation, side connections, rail shapes). Air in the
+# schematic places nothing, and block entities (sign texts, container contents) and
+# entities are not placed. A schematic made for another Minecraft version keeps its block
+# names as they are.

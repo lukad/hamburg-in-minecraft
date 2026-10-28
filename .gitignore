@@ -1,0 +1,10 @@
+/target
+/data/raw/
+/data/prepared/
+/data/cache/
+/out/
+# Mojang server/client jars and anything derived from them that is not an aggregate
+/tools/minecraft/
+*.jar
+# Golden tile data: cut locally from a full build (`hhmc golden extract --name <name>`)
+/tests/golden/*/data/

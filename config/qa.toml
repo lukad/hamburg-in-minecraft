@@ -1,0 +1,97 @@
+# QA thresholds.
+
+[ground]
+# A land column fails if its top ground block differs from DGM1 by more than this.
+tolerance_m = 0.5
+# Between neighboring water columns where one has a DGM-W bed and the other a synthetic
+# one, a bed step larger than this counts as a wall at the DGM1/DGM-W seam.
+seam_max_step_m = 2
+# Median |highest building block − bDOM| over a tile's building columns (target:
+# ≤ 1 m against DOM1; bDOM is the image-matching substitute).
+roof_median_abs_max_m = 1.0
+# A building whose own median |top − bDOM| exceeds this is reported as changed since the
+# 2022 bDOM flight (new, demolished or rebuilt) and left out of the roof statistics.
+roof_changed_m = 5.0
+# Surface height: a column is off when its highest block differs from bDOM
+# (DOM1 substitute) by more than this; a tile is flagged when more than the given fraction
+# of its columns are off. Water surfaces and tree crowns (with a 2-cell fringe) are left
+# out: bDOM is from the leaf-off DOP20 flight. LoD2 against bDOM differs in about 10 % of
+# a typical tile's columns (idealized roofs without rooftop plant 3–6 %, outline edges
+# 2 %, vehicles, kiosks and walls 2–4 %); 15 % flags the tiles where reality differs from the models (new or demolished
+# buildings in HafenCity, refinery pipework, shore scrub, pontoons at another tide).
+# Industrial and port yards (`built` without a building) are left
+# out, since bDOM sees container stacks, stored goods and vehicles there that no source
+# models; housing is `residential` and stays in. Tiles with fewer than
+# `surface_min_columns` checked columns (border tiles mostly outside the city) do not
+# fail on the fraction.
+surface_tolerance_m = 2.0
+surface_max_off_fraction = 0.15
+surface_min_columns = 20000
+surface_skip_yards = ["built"]
+
+# Viewpoints. Camera and look-at in EPSG:25832 and m NHN; landmark
+# positions from ALKIS (Kehrwiederspitze) and OSM (Elbphilharmonie, Wasserschloss,
+# Landungsbrücken, Brooksbrücke, Hauptkirche St. Katharinen). `hhmc views` renders them
+# to out/qa/views/ and prints a /tp command per view for checking in the game.
+[[viewpoint]]
+name = "Elbphilharmonie from the Kehrwiederspitze"
+camera = [565131.0, 5933127.0, 9.0]
+look_at = [565222.0, 5932955.0, 55.0]
+
+[[viewpoint]]
+name = "Wasserschloss"
+# Over the Holländischbrookfleet north-east of it (water checked in the prepared rasters).
+camera = [566335.0, 5933475.0, 8.0]
+look_at = [566275.0, 5933431.0, 14.0]
+
+[[viewpoint]]
+name = "Landungsbrücken from the river"
+camera = [564420.0, 5933200.0, 6.0]
+look_at = [564350.0, 5933440.0, 12.0]
+
+[[viewpoint]]
+name = "Brooksbrücke along the Zollkanal"
+camera = [565585.0, 5933300.0, 9.0]
+look_at = [565850.0, 5933400.0, 9.0]
+
+[[viewpoint]]
+name = "St. Katharinen roofline"
+camera = [565880.0, 5933330.0, 20.0]
+look_at = [565891.0, 5933470.0, 35.0]
+
+# Infrastructure viewpoints: the U3 viaduct through Baumwall station, the Landungsbrücken
+# pontoons with their gangways (positions from ALKIS structures).
+[[viewpoint]]
+name = "U3 viaduct at Baumwall station"
+camera = [564950.0, 5933190.0, 35.0]
+look_at = [565010.0, 5933262.0, 12.0]
+
+[[viewpoint]]
+name = "Fleet bridge from the water"
+camera = [565585.0, 5933530.0, 3.5]
+look_at = [565535.0, 5933530.0, 5.0]
+
+[[viewpoint]]
+name = "Landungsbrücken pontoons"
+camera = [564560.0, 5933160.0, 14.0]
+look_at = [564420.0, 5933300.0, 4.0]
+
+[color]
+# Roof color vs DOP20 2026 (CIEDE2000 between the top block's palette color and the 1 m
+# orthophoto pixel), area-wide median over textured (LoD3) building columns. Typical
+# medians are about 7 (untextured buildings, colored from the orthophoto itself: about 5).
+roof_de2000_median_max = 10.0
+# The area median is judged only over at least this many textured buildings (a golden
+# tile with one or two says little).
+min_textured_buildings = 20
+
+[determinism]
+# Tiles rebuilt from scratch in memory on every QA run and compared block by block with
+# their region files on disk (determinism).
+tiles = [[0, 0], [-2, 1]]
+
+[performance]
+# A tile is flagged when its last forced build took this many times its baseline time
+# (config/perf_baseline.toml, `hhmc qa --set-baseline`).
+slower_than = 1.25
+

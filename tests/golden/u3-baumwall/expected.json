@@ -1,0 +1,32 @@
+{
+  "qa_passes": true,
+  "counts": {
+    "minecraft:andesite": 99,
+    "minecraft:andesite_slab": 88,
+    "minecraft:bedrock": 4096,
+    "minecraft:birch_leaves": 1700,
+    "minecraft:birch_log": 62,
+    "minecraft:bricks": 292,
+    "minecraft:deepslate_brick_slab": 78,
+    "minecraft:deepslate_bricks": 73,
+    "minecraft:gravel": 1064,
+    "minecraft:gray_concrete": 1115,
+    "minecraft:iron_bars": 160,
+    "minecraft:polished_andesite": 228,
+    "minecraft:polished_andesite_slab": 1,
+    "minecraft:polished_deepslate": 906,
+    "minecraft:polished_diorite": 1,
+    "minecraft:polished_tuff": 16,
+    "minecraft:polished_tuff_slab": 20,
+    "minecraft:rail": 139,
+    "minecraft:rooted_dirt": 54,
+    "minecraft:sand": 1962,
+    "minecraft:smooth_stone": 2565,
+    "minecraft:stone": 276518,
+    "minecraft:stone_brick_slab": 8,
+    "minecraft:stone_bricks": 101,
+    "minecraft:stone_slab": 1,
+    "minecraft:tuff_bricks": 2,
+    "minecraft:water": 732
+  }
+}

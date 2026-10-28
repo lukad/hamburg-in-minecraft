@@ -1,0 +1,5 @@
+# Tool versions for `mise install`. Rust comes from rust-toolchain.toml (rustup); GDAL is a
+# system package. Java is only needed for `just server-test` and `just palette`.
+[tools]
+just = "1.59"
+java = "openjdk-25"

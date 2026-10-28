@@ -1,0 +1,61 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.90"
+publish = false
+license = "MIT"
+
+[workspace.dependencies]
+hhmc-core = { path = "crates/hhmc-core" }
+hhmc-fetch = { path = "crates/hhmc-fetch" }
+hhmc-world = { path = "crates/hhmc-world" }
+hhmc-qa = { path = "crates/hhmc-qa" }
+hhmc-prep = { path = "crates/hhmc-prep" }
+hhmc-ground = { path = "crates/hhmc-ground" }
+hhmc-citygml = { path = "crates/hhmc-citygml" }
+hhmc-buildings = { path = "crates/hhmc-buildings" }
+hhmc-veg = { path = "crates/hhmc-veg" }
+hhmc-infra = { path = "crates/hhmc-infra" }
+hhmc-landmarks = { path = "crates/hhmc-landmarks" }
+
+anyhow = "1"
+fastnbt = "2.6"
+flate2 = "1.1"
+earcutr = "0.5"
+palette = { version = "0.7", default-features = false, features = ["std"] }
+zune-jpeg = "0.5"
+quick-xml = "0.42"
+clap = { version = "4.6", features = ["derive"] }
+hex = "0.4"
+flatgeobuf = "6.0"
+geozero = { version = "0.15", default-features = false, features = ["with-geo"] }
+geo-types = "0.7"
+png = "0.18"
+postcard = { version = "1.1", default-features = false, features = ["use-std"] }
+rayon = "1.12"
+serde = { version = "1", features = ["derive"] }
+sha1 = "0.11"
+sha2 = "0.11"
+serde_json = "1"
+thiserror = "2"
+tiff = "0.11"
+zstd = "0.14"
+toml = "1.1"
+toml_edit = "0.25"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+ureq = "3.5"
+zip = { version = "9.1", default-features = false, features = ["deflate-flate2-zlib-rs", "deflate64"] }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+[profile.release]
+debug = "line-tables-only"

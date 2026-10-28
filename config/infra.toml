@@ -1,0 +1,152 @@
+# Infrastructure: bridges, elevated railways and roads, landing stages
+# (pontoons), bridge piers and rails, all from ALKIS NAS structures
+# (AX_BauwerkImVerkehrsbereich, AX_Gleis). Codes per the GeoInfoDok value lists (see
+# docs/data-notes.md). Changing this file invalidates the infra prep and stage.
+
+[heights]
+# Deck heights, one surface per deck kind over all its polygons (ALKIS splits bridges):
+# 1. a low `quantile` of bDOM over the kind's cells within `median_radius_m` (widened up
+#    to `max_radius_m` until `min_samples`), using only cells that no other deck kind
+#    and no ALKIS building or canopy covers (in bDOM an upper deck hides a lower one, a
+#    station roof the track through it). Where most of them are clear (not beside another
+#    deck kind, bDOM more than `min_rise_m` above the ground or water) only those count:
+#    otherwise bDOM may see the other deck, the ground or the water beside or below a deck
+#    narrower than its polygon. Where most are not, the deck is at street level and the clear ones are
+#    what stands on it.
+#    What stands on or over a deck (vehicles, trains, railings, a roof with gaps) only
+#    raises bDOM, so the low end is the deck;
+# 2. a median over `smooth_radius_m` of that (trains, catenary portals and trusses on
+#    the deck drop out); cells without values are interpolated (inverse distance, 32 m);
+# 3. where a deck's edge meets land within `anchor_tolerance_m` of the deck, the land's
+#    height pins the deck there, blended out over `anchor_blend_m` (overpasses, 4.5 m
+#    and more above the road, stay up). Only land the deck really lands on pins it: land
+#    that is bare (its bDOM within `anchor_step_m` of DGM1: not dipped under a hidden
+#    abutment, nothing standing on it) and continues the deck's measured surface (bDOM
+#    within `anchor_step_m` of the deck's there), not a bank, a road below or a street
+#    beside a viaduct.
+median_radius_m = 6.0
+max_radius_m = 24.0
+min_samples = 12
+quantile = 0.1
+min_rise_m = 1.0
+smooth_radius_m = 10.0
+anchor_tolerance_m = 3.5
+anchor_blend_m = 10.0
+anchor_step_m = 1.0
+# Bridges (decks with `surface_from_landuse`) are crossings: the direction in which
+# their cells reach land at both ends (land near the deck's height) is found, the deck is
+# extended along it to the banks: over the road that ALKIS has under the bridge (prep
+# made it water because DGM1 shows the water level there) and over gaps of ALKIS water
+# up to `bank_gap_m`. Lanes and sidewalks are ALKIS's on the road under the bridge and
+# continue straight across from the streets they line up with elsewhere.
+bank_gap_m = 4.0
+# Abutments: DGM1 is bare earth without the bridges, so beside a deck it can dip toward
+# the water under it while the street runs on at the deck's height. Street land (surface
+# classes, also the road under a bridge) reached from a deck within `abutment_max_m`, whose bDOM (no building, canopy or
+# other deck above) continues the deck's within `abutment_step_m` per cell, lies at least
+# `abutment_min_rise_m` above DGM1 and a block or more above the ground, is part of the deck; it keeps its own land use and is drawn
+# wherever the deck is above the ground. Street cells beside it where something standing
+# on the street hides it (bDOM above) join without spreading further. Where bDOM does not
+# continue the deck (a tree, its
+# pit, a vehicle), cells enclosed by the deck on three sides, and patches of up to 25
+# cells it encloses on all sides, are part of it too. An
+# abutment joins the deck to a street at its height: a patch that touches no bare land
+# (bDOM on DGM1) at its height is dropped (a canopy or platform beside a deck).
+abutment_step_m = 0.5
+abutment_max_m = 20.0
+abutment_min_rise_m = 0.5
+
+# Deck kinds by `bauwerksfunktion`. With `surface_from_landuse`, the deck is a crossing
+# (see `bank_gap_m`) and the road, sidewalk and plaza surfaces of the streets it lines up
+# with continue across it; `top` is the surface elsewhere, `structure` the block below it,
+# `thickness` the deck's blocks including the surface. Deck cells over land at most one
+# block above the ground are not drawn: the street is the surface there. `railing` goes
+# on the deck's edges where the drop beside it is at least `railing_min_drop` blocks,
+# except where the deck lands on the ground (within `anchor_tolerance_m`).
+# `min_clearance` air blocks stay between water and the deck's underside; decks resting
+# on a floating deck (gangways to pontoons) land on it and only stay above the water.
+# `support_spacing_m` > 0 adds supports (to the ground) along the deck's tracks where
+# ALKIS records no pier within half the spacing. With `pass_through_clearance` > 0 the
+# track corridor on the deck, its rails and that many air blocks above them win over
+# buildings: railways run through their stations.
+[[deck]]
+kind = "bridge"
+bauwerksfunktion = [1800, 1820]
+surface_from_landuse = true
+top = "minecraft:polished_andesite"
+structure = "minecraft:stone_bricks"
+thickness = 2
+railing = "minecraft:iron_bars"
+railing_min_drop = 2
+min_clearance = 1
+support_spacing_m = 0.0
+
+# Hochbahn and Hochstraße: elevated railways (the U3) and roads.
+[[deck]]
+kind = "elevated"
+bauwerksfunktion = [1830]
+surface_from_landuse = true
+top = "minecraft:polished_andesite"
+structure = "minecraft:polished_deepslate"
+thickness = 2
+railing = "minecraft:iron_bars"
+railing_min_drop = 2
+min_clearance = 1
+support_spacing_m = 15.0
+pass_through_clearance = 4
+
+# Landing stages are floating pontoons: their top sits `freeboard` blocks above the
+# water surface and the hull fills the water's top `draft` blocks. Buildings on them stand
+# on the deck. Over land a landing stage is not drawn (the terrain is its ground).
+[[deck]]
+kind = "landing_stage"
+bauwerksfunktion = [1810]
+top = "minecraft:polished_andesite"
+structure = "minecraft:polished_deepslate"
+thickness = 1
+railing = "minecraft:iron_bars"
+railing_min_drop = 2
+min_clearance = 0
+support_spacing_m = 0.0
+floating = { freeboard = 1, draft = 1 }
+
+[piers]
+# AX_BauwerkImVerkehrsbereich 1840 (Brückenpfeiler) and generated supports: from the
+# ground (river bed) up to the underside of the deck above them (within one cell);
+# piers with no deck there are not drawn.
+bauwerksfunktion = [1840]
+block = "minecraft:stone_bricks"
+support_block = "minecraft:polished_deepslate"
+
+# Land-use classes (config/blocks.toml) whose surface continues across decks.
+[surfaces]
+classes = ["road", "sidewalk", "plaza"]
+
+[rails]
+# AX_Gleis tracks outside ALKIS tunnels (1870) get rails along their path:
+# - on a deck, on its top, with `ballast` as the deck surface within one cell;
+# - where a track leaves the deck polygons for at most `max_gap_m` between two decks,
+#   at the height interpolated between them, on a deck of kind `gap_deck` where that is
+#   above the ground (ALKIS polygons do not always cover the whole viaduct);
+# - continuing a deck (or a track lifted beside it), as long as the track's own bDOM (a
+#   low quantile over 5 path cells either side, no building, canopy or deck above) stays
+#   above the ground (DGM1 is bare earth: it omits viaducts, ramps and troughs) or above
+#   the water: at that height on a deck of kind `gap_deck` (ramps down to tunnel portals,
+#   railway viaducts between their ALKIS bridge polygons); where something over the track
+#   hides it (an overpass, a roof), carried across at the interpolated height if the track
+#   is seen again within `max_gap_m`;
+# - on the ground, on a bed at the median ground height over `bed_window` cells either
+#   side (cut and filled), so rails do not follow every bump of the terrain.
+# Trees keep the vegetation clearance within `corridor_m` of a track.
+block = "minecraft:rail"
+ballast = "minecraft:gravel"
+tunnel_bauwerksfunktion = [1870]
+max_gap_m = 30.0
+# A railway viaduct is one surface across its tracks: land of these classes within
+# `viaduct_fill_m` of a lifted track, whose own bDOM is at the track's height, is part of
+# its deck.
+viaduct_fill_m = 6.0
+viaduct_classes = ["rail"]
+gap_deck = "elevated"
+bed_window = 4
+corridor_m = 2.0

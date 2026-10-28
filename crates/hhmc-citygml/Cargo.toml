@@ -1,0 +1,17 @@
+[package]
+name = "hhmc-citygml"
+description = "Streaming CityGML 1.0/2.0 building parser and polygon triangulation"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+earcutr.workspace = true
+quick-xml.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

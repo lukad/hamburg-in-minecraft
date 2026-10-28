@@ -1,0 +1,117 @@
+# Vegetation: street trees from the cadasters, park trees from the canopy
+# height model (bDOM − DGM1). Changing this file invalidates the vegetation stage.
+
+# Genus (Latin, first word of the cadaster's genus/species) → tree family.
+default_family = "oak"
+
+[genus]
+Quercus = "oak"
+Acer = "oak"
+Fraxinus = "oak"
+Sorbus = "oak"
+Prunus = "oak"
+Ulmus = "oak"
+Liquidambar = "oak"
+Corylus = "oak"
+Crataegus = "oak"
+Malus = "oak"
+Pyrus = "oak"
+Tilia = "dark_oak"
+Platanus = "dark_oak"
+Aesculus = "dark_oak"
+Fagus = "dark_oak"
+Carpinus = "dark_oak"
+Castanea = "dark_oak"
+Betula = "birch"
+Populus = "birch"
+Robinia = "birch"
+Gleditsia = "birch"
+Sophora = "birch"
+Styphnolobium = "birch"
+Salix = "birch"
+Alnus = "birch"
+Picea = "spruce"
+Pinus = "spruce"
+Abies = "spruce"
+Taxus = "spruce"
+Larix = "spruce"
+Pseudotsuga = "spruce"
+Thuja = "spruce"
+Chamaecyparis = "spruce"
+Metasequoia = "spruce"
+Taxodium = "spruce"
+Juniperus = "spruce"
+Cedrus = "spruce"
+
+# Families: log and leaves blocks, crown shape ("ellipsoid" or "cone").
+[family.oak]
+log = "minecraft:oak_log"
+leaves = "minecraft:oak_leaves"
+shape = "ellipsoid"
+[family.dark_oak]
+log = "minecraft:dark_oak_log"
+leaves = "minecraft:dark_oak_leaves"
+shape = "ellipsoid"
+[family.birch]
+log = "minecraft:birch_log"
+leaves = "minecraft:birch_leaves"
+shape = "ellipsoid"
+[family.spruce]
+log = "minecraft:spruce_log"
+leaves = "minecraft:spruce_leaves"
+shape = "cone"
+
+[tree]
+# The crown takes this share of the height (the rest is clear trunk), but leaves start
+# at least `min_crown_base_blocks` above the ground.
+crown_share = 0.65
+min_crown_base_blocks = 3
+# Trunks get 2 × 2 blocks from this girth (circumference) on.
+big_trunk_girth_cm = 250.0
+# Share of crown voxels kept near the crown's edge (deterministic noise per tree id).
+edge_density = 0.6
+# Fallbacks when the cadaster has no crown diameter / the height is estimated.
+default_crown_m = 6.0
+# Crowns are drawn at least this wide: young trees with 1 m crowns would be bare trunks.
+min_crown_m = 3.0
+min_height_m = 3.0
+max_height_m = 45.0
+
+[conflicts]
+# A trunk in water, on one of these surface classes or in a building footprint moves to
+# the nearest free cell within `snap_m`; trees with no free cell are logged and skipped.
+# Roads are not blocked: ALKIS road areas include sidewalks, tree strips and parking
+# islands, and the cadaster places trees there; each street tree gets a pit instead.
+blocked_classes = ["water"]
+snap_m = 2.0
+# Tree voxels over these classes, and within `rails.corridor_m` of a railway track
+# (config/infra.toml), stay this many blocks above the ground (the clearance profile,
+# 4.5 m in German road design rules). Trunks stand in their pit. Railway land use is not
+# listed: it includes embankments and verges where trees grow.
+clearance_classes = ["road"]
+clearance_blocks = 5
+
+[pit]
+# Street and port trees stand in an unsealed tree pit (Baumscheibe): the top block of the
+# cells within `radius_blocks` of the trunk becomes `block`, on these surface classes.
+block = "minecraft:rooted_dirt"
+radius_blocks = 1
+classes = ["road", "sidewalk", "plaza", "built", "residential"]
+
+[parks]
+# Park and wood trees from the canopy height model (bDOM − DGM1) in these surface
+# classes: cells at least `min_height_m` tall, taken highest first, each suppressing
+# lower cells within `suppress_factor` × its crown radius. Heights and crown diameters
+# are calibrated on the street trees that have an ALS height (see
+# data/prepared/trees/calibration.json). Cells inside a street tree's crown or within
+# `building_clearance_m` of a building footprint are skipped. `residential` holds the
+# gardens and yards of housing, mixed-use and public plots, so their garden trees are
+# placed; the rest of `built` is left out, where bDOM sees container stacks and stored
+# goods in the port.
+enabled = true
+classes = ["grass", "residential"]
+min_height_m = 4.0
+suppress_factor = 0.8
+building_clearance_m = 2.0
+min_crown_m = 3.0
+max_crown_m = 16.0

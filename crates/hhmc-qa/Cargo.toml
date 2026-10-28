@@ -1,0 +1,30 @@
+[package]
+name = "hhmc-qa"
+description = "QA for generated worlds: headless vanilla server harness, checks and reports"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+hex.workspace = true
+hhmc-buildings.workspace = true
+hhmc-infra.workspace = true
+hhmc-landmarks.workspace = true
+png.workspace = true
+palette.workspace = true
+rayon.workspace = true
+zip.workspace = true
+hhmc-core.workspace = true
+hhmc-fetch.workspace = true
+hhmc-world.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha1.workspace = true
+tracing.workspace = true
+ureq.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,42 @@
+[package]
+name = "hhmc-cli"
+description = "The hhmc command: Hamburg open geodata to a Minecraft Java world"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "hhmc"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+postcard.workspace = true
+zstd.workspace = true
+png.workspace = true
+fastnbt.workspace = true
+clap.workspace = true
+hhmc-core.workspace = true
+hhmc-buildings.workspace = true
+hhmc-veg.workspace = true
+hhmc-infra.workspace = true
+hhmc-landmarks.workspace = true
+hhmc-fetch.workspace = true
+hhmc-ground.workspace = true
+rayon.workspace = true
+sha2.workspace = true
+hhmc-prep.workspace = true
+hhmc-qa.workspace = true
+hhmc-world.workspace = true
+toml.workspace = true
+toml_edit.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+zip.workspace = true
+
+[lints]
+workspace = true

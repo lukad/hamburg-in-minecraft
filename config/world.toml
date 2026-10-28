@@ -1,0 +1,40 @@
+# World-wide constants. Changing anything here invalidates every cached stage.
+
+[minecraft]
+# version: https://piston-meta.mojang.com/mc/game/version_manifest_v2.json
+# data_version: `world_version` in the 26.3 server jar's version.json, and
+# https://minecraft.wiki/w/Data_version
+version = "26.3"
+data_version = 5023
+# The server needs this Java major version (javaVersion.majorVersion in the version JSON).
+java_major = 25
+
+[origin]
+# Rathausmarkt, 53.55035 N 9.99269 E, is EPSG:25832 E 565768.6 / N 5933953.6
+# (`echo 53.55035 9.99269 | cs2cs EPSG:4326 EPSG:25832`), rounded to the nearest 512 m.
+# World x = E − e0, z = n0 − N (Minecraft +z is south).
+e0 = 565760
+n0 = 5934080
+
+[spawn]
+# Rathausmarkt plaza: vertex centroid of its ALKIS land-use polygon (DEHHALKA6yi0001OTN,
+# "Platz / Fußgängerzone / Rathausmarkt"). The point the origin was derived from lies in
+# the Rathaus itself. y is the surface there + 1.
+e = 565770.1
+n = 5934017.1
+
+[height]
+# y = round(H in m NHN, DHHN2016); sea level 0 m NHN is y = 0.
+min_y = -64
+max_y = 319
+# Out-of-range heights are clamped into this range and logged; -64 holds bedrock.
+clamp_min = -63
+clamp_max = 318
+
+[game_rules]
+# Patched into data/minecraft/game_rules.dat as "minecraft:<id>". Ids verified against the
+# 26.3 server jar (net.minecraft.world.level.gamerules.GameRules). A sightseeing city:
+# no hostile mobs, phantoms or mob griefing.
+spawn_monsters = false
+spawn_phantoms = false
+mob_griefing = false

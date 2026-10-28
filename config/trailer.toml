@@ -1,0 +1,95 @@
+# Trailer shots for `hhmc trailer`: a tour datapack that flies the player through every shot
+# while Flashback records, and the Flashback editor state with one scene (camera
+# keyframes, time of day, export range) per shot. Positions are EPSG:25832 E, N and m NHN
+# (= block y). Landmark positions are from the pinned OSM extract.
+#
+# Each shot gets a window of `lead_s + seconds + tail_s` in the recording. The player is
+# teleported halfway along the camera path at the window's start (chunks load during the lead);
+# the camera runs from `lead_s` for `seconds` while the player stays put. Start the recording, then run `/function hhmc:tour`
+# within a second or two.
+
+# The player waits halfway along the camera path for the lead before the camera runs.
+# `hhmc trailer --install` cuts one replay per shot from the recording and delivers the
+# shot's chunks a second before its export starts, so the lead only has to let them all
+# arrive (about 1300 at roughly 100 per second).
+lead_s = 15.0
+# Still camera exported before each shot; cut when joining the clips.
+preroll_s = 2.0
+tail_s = 3.0
+# Paths are scaled about their middle to at most this length, so the camera stays within
+# 150 m of the player: record and export at render distance 32.
+max_path_m = 300.0
+
+# Minecraft time of day for shots without their own: 0 = sunrise, 6000 = noon, 12000 =
+# sunset.
+time_of_day = 11000
+
+[[shot]]
+name = "Elbe skyline"
+seconds = 7.0
+time_of_day = 1500
+camera = [[564200.0, 5932600.0, 120.0], [564800.0, 5932700.0, 90.0]]
+# Elbphilharmonie (OSM 565381, 5932827).
+look_at = [[565330.0, 5932900.0, 55.0]]
+
+[[shot]]
+name = "Elbphilharmonie"
+seconds = 7.0
+camera = [[565050.0, 5932650.0, 45.0], [565180.0, 5932560.0, 50.0], [565360.0, 5932560.0, 55.0]]
+look_at = [[565330.0, 5932880.0, 60.0]]
+
+[[shot]]
+name = "Speicherstadt"
+seconds = 7.0
+# Along the Speicherstadt toward the Wasserschloss (OSM 566272, 5933428).
+camera = [[565450.0, 5933150.0, 45.0], [566050.0, 5933300.0, 40.0]]
+look_at = [[565750.0, 5933300.0, 15.0], [566272.0, 5933428.0, 15.0]]
+
+[[shot]]
+name = "Rathaus and Binnenalster"
+seconds = 7.0
+# Over the Binnenalster (OSM 565944, 5934480) toward the Rathaus (OSM 565749, 5933960).
+camera = [[565880.0, 5934380.0, 40.0], [565820.0, 5934150.0, 45.0]]
+look_at = [[565760.0, 5933960.0, 60.0]]
+
+[[shot]]
+name = "Außenalster"
+seconds = 7.0
+# Across the Alster toward the Jungfernstieg skyline.
+camera = [[566900.0, 5936300.0, 60.0], [566500.0, 5936000.0, 55.0]]
+look_at = [[566100.0, 5934800.0, 20.0]]
+
+[[shot]]
+name = "Heinrich-Hertz-Turm"
+seconds = 7.0
+# Rising beside the tower (OSM 564631, 5935360).
+camera = [[564900.0, 5935150.0, 75.0], [564880.0, 5935170.0, 200.0]]
+look_at = [[564631.0, 5935360.0, 140.0], [564631.0, 5935360.0, 210.0]]
+
+[[shot]]
+name = "St. Michaelis"
+seconds = 7.0
+# A quarter orbit around the Michel (OSM 564859, 5933724).
+camera = [[565059.0, 5933724.0, 110.0], [565000.0, 5933865.0, 110.0], [564859.0, 5933924.0, 110.0]]
+look_at = [[564859.0, 5933724.0, 90.0]]
+
+[[shot]]
+name = "Landungsbrücken"
+seconds = 7.0
+# Low over the Elbe along the pontoons (OSM 564353, 5933435).
+camera = [[564650.0, 5933180.0, 16.0], [563950.0, 5933330.0, 16.0]]
+look_at = [[564400.0, 5933440.0, 12.0], [563700.0, 5933450.0, 12.0]]
+
+[[shot]]
+name = "Köhlbrandbrücke"
+seconds = 7.0
+# The main span over the Köhlbrand (OSM ways E 561165–564348, span about E 562350).
+camera = [[562250.0, 5930350.0, 35.0], [562100.0, 5930300.0, 50.0]]
+look_at = [[562350.0, 5930710.0, 56.0]]
+
+[[shot]]
+name = "Finale"
+seconds = 7.0
+time_of_day = 12600
+camera = [[565800.0, 5932700.0, 150.0], [565800.0, 5932500.0, 220.0]]
+look_at = [[565800.0, 5934300.0, 20.0], [565800.0, 5934600.0, 0.0]]

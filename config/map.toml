@@ -1,0 +1,26 @@
+# Top-down web map: `hhmc map --area <area>` writes out/map/, a static site
+# (MapLibre GL JS) that works from any static file server.
+
+# XYZ tiles in Web Mercator: `max_zoom` is cut from the 1 px-per-block tile renders (z18 is
+# about 0.36 m per pixel in Hamburg, so a block spans about 2.8 pixels), lower zooms are
+# averaged from it.
+min_zoom = 12
+max_zoom = 18
+
+[wms]
+# The orthophoto backdrop the slider blends to, loaded by the browser. LGV WMS "DOP
+# Zeitreihe unbelaubt" (the DOP20 series of data/sources.toml). Per its GetCapabilities:
+# layer below, CRS EPSG:3857, image/jpeg, default TIME 2026, max 4096 px, and
+# GetMap answers with `Access-Control-Allow-Origin: *`.
+url = "https://geodienste.hamburg.de/wms_dop_zeitreihe_unbelaubt"
+layer = "dop_zeitreihe_unbelaubt"
+# Dataset in data/sources.toml whose attribution and license the backdrop shows.
+source = "dop20"
+
+[libs]
+# Pinned browser libraries.
+maplibre_js = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"
+maplibre_css = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css"
+proj4_js = "https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.11.0/proj4.js"
+# PROJ string of EPSG:25832 (ETRS89 / UTM zone 32N) for proj4js.
+epsg25832 = "+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
